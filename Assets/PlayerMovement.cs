@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float sensitivity;
+    private SpriteShapeRenderer asd;
 
     private Vector3 targetPosition;
     // Start is called before the first frame update
