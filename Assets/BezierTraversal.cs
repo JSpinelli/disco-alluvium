@@ -61,8 +61,6 @@ public class BezierTraversal : MonoBehaviour
             else
             {
                 Debug.Log("GIVE ME ANOTHER!");
-                percentage += movementStep;
-                nextPosition = currentSection.CalculatePosition(percentage);
                 if (percentage > 1)
                 {
                     Debug.Log("GIVE ME ANOTHER!");
@@ -76,7 +74,22 @@ public class BezierTraversal : MonoBehaviour
                     }
                     currentSection = path.curve[i];
                 }
+                percentage += movementStep;
+                nextPosition = currentSection.CalculatePosition(percentage);
             }
+        }
+        else
+        {
+            Debug.Log("GIVE ME ANOTHER!");
+            movableThing.transform.position = currentSection.endPoint;
+            percentage = 0;
+            i++;
+            if (i == path.curve.Count)
+            {
+                Debug.Log("Reseted");
+                i = 0;
+            }
+            currentSection = path.curve[i];
         }
     }
 

@@ -267,8 +267,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 0.08667755, y: 0.1295557, z: -0.00005}
-    m_Extent: {x: 11.897343, y: 5.2552776, z: 0.00005}
+    m_Center: {x: 0.08667755, y: 0.1295557, z: 0}
+    m_Extent: {x: 11.897343, y: 5.2552776, z: 0}
 --- !u!4 &304727481
 Transform:
   m_ObjectHideFlags: 0
