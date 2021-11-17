@@ -31,7 +31,7 @@ public class BezierTraversal : MonoBehaviour
         prevPos = transform.position;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (moving)
         {
@@ -40,13 +40,12 @@ public class BezierTraversal : MonoBehaviour
                 movableThing.transform.position = movableThing.transform.position + (transform.position - prevPos);
                 prevPos = transform.position;
                 nextPosition = currentSection.CalculatePosition(percentage);
-                Debug.Log("TARGET IS MOVING");
             }
             if (movableThing.transform.position != currentSection.endPoint)
         {
             if (movableThing.transform.position != nextPosition)
             {
-                Vector3 objective = Vector3.MoveTowards(movableThing.transform.position, nextPosition, Time.deltaTime * speed);
+                Vector3 objective = Vector3.MoveTowards(movableThing.transform.position, nextPosition, Time.deltaTime * currentSection.spreadThroughSection.Evaluate(percentage) *currentSection.speedThroughSection);
                 movableThing.transform.position = objective;
             }
             else

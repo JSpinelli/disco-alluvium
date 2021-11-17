@@ -12,6 +12,9 @@ public class BezierCurve : MonoBehaviour
     public Vector3 endPoint = new Vector3(-2.0f, 2.0f, 0.0f);
     public Vector3 startTangent = Vector3.zero;
     public Vector3 endTangent = Vector3.zero;
+    
+    public float speedThroughSection = 10;
+    public AnimationCurve spreadThroughSection = AnimationCurve.Constant(0,1,1);
 
     private Vector3 previousParentPos = Vector3.zero;
 
