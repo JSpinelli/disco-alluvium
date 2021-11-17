@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 #if UNITY_EDITOR
@@ -12,6 +13,11 @@ public class BezierCurveBuilder : MonoBehaviour
     public GameObject bezierCurve;
     public GameObject bezierCurveContinuation;
     public GameObject bezierCurveEnd;
+
+    private Vector3 prevPos;
+
+    [HideInInspector]
+    public bool toggleShow = false;
 
     public void AddSection()
     {
@@ -45,6 +51,27 @@ public class BezierCurveBuilder : MonoBehaviour
             end.SetEnd(previous, first);
             curve.Add(end);
     }
+
+    public void UpdatePositions()
+    {
+        foreach (var section in curve)
+        {
+            section.UpdatePos();
+        }
+    }
+
+    private void Start()
+    {
+        prevPos = transform.position;
+    }
+
+    private void Update()
+    {
+        if (prevPos != transform.position)
+        {
+            UpdatePositions();
+        }
+    }
 }
 
 #if UNITY_EDITOR
@@ -70,6 +97,14 @@ public class DrawBezierCurveBuilder : Editor
             isClosed = true;
             curveBuilder.CloseLoop();
         }
+        
+        if(GUILayout.Button("Update"))
+        {
+            curveBuilder.UpdatePositions();
+        }
+
+        curveBuilder.toggleShow = GUILayout.Toggle(curveBuilder.toggleShow,"Always Show Line");
+
     }
 
     private void OnSceneViewGUI(SceneView sv)
@@ -93,7 +128,9 @@ public class DrawBezierCurveBuilder : Editor
 
     void OnDisable()
     {
-        SceneView.duringSceneGui -= OnSceneViewGUI;
+        BezierCurveBuilder curveBuilder = (BezierCurveBuilder)target;
+        if (!curveBuilder.toggleShow)
+            SceneView.duringSceneGui -= OnSceneViewGUI;
     }
 
 }

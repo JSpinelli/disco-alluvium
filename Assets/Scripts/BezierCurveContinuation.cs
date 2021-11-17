@@ -32,8 +32,8 @@ public class DrawBezierCurveContinuation : Editor
 
         bc.endPoint = Handles.PositionHandle(bc.endPoint, Quaternion.identity);
         bc.endTangent = Handles.PositionHandle(bc.endTangent, Quaternion.identity);
-
-        bc.startTangent =bc.startPoint +  (Vector3.Normalize(bc.previous.endPoint - bc.previous.endTangent) * bc.magnitude);
+        bc.startTangent = Handles.PositionHandle(bc.startTangent, Quaternion.identity);
+        //bc.startTangent =bc.startPoint +  (Vector3.Normalize(bc.previous.endPoint - bc.previous.endTangent) * bc.magnitude);
         bc.startPoint = bc.previous.endPoint;
 
         Handles.DrawBezier(bc.startPoint, bc.endPoint, bc.startTangent, bc.endTangent, Color.red, null, 2f);

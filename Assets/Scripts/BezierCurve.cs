@@ -13,11 +13,13 @@ public class BezierCurve : MonoBehaviour
     public Vector3 startTangent = Vector3.zero;
     public Vector3 endTangent = Vector3.zero;
 
+    private Vector3 previousParentPos = Vector3.zero;
+
     public void SetValues(Vector3 position){
-        startPoint = position;
-        endPoint = position + new Vector3(0.0f,1f,1f);
-        startTangent = position + new Vector3(0.0f,1f,0f);
-        endTangent = position + new Vector3(1f,1f,1f);
+        startPoint = transform.parent.position + position;
+        endPoint = transform.parent.position + position + new Vector3(0.0f,1f,1f);
+        startTangent = transform.parent.position + position + new Vector3(0.0f,1f,0f);
+        endTangent = transform.parent.position + position + new Vector3(1f,1f,1f);
     }
 
     public Vector3 CalculatePosition(float t){
@@ -33,6 +35,21 @@ public class BezierCurve : MonoBehaviour
         p += ttt * endPoint; 
         
         return p;
+    }
+    
+    
+
+    public void UpdatePos()
+    {
+        if (previousParentPos == transform.parent.position)
+            return;
+
+        Vector3 diff = transform.parent.position - previousParentPos;
+        startPoint = diff + startPoint;
+        endPoint = diff + endPoint;
+        startTangent = diff + startTangent;
+        endTangent = diff + endTangent;
+        previousParentPos = transform.parent.position;
     }
 }
 

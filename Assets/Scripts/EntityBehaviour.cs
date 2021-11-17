@@ -1,0 +1,99 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class EntityBehaviour : MonoBehaviour
+{
+    public List<BezierTraversal> idleMovement;
+    public List<BezierTraversal> followingMovement;
+
+    public float waitingAmount;
+    private float timer;
+    private bool onTarget;
+    private bool waitingForSwitch;
+
+    public ChargingAction chargingAction;
+    public List<SwitchAction> switchActions;
+
+    private int currentTransition;
+    private int totalTransitions;
+
+    public GameObject player;
+
+    private void Start()
+    {
+        foreach (var mvt in idleMovement)
+        {
+            mvt.StopResume();
+        }
+
+        currentTransition = 0;
+        totalTransitions = switchActions.Count;
+        waitingForSwitch = true;
+    }
+
+    private void Update()
+    {
+        if (onTarget && waitingForSwitch)
+        {
+            timer += Time.deltaTime;
+            chargingAction.NextStep(timer/waitingAmount);
+            
+            if (timer > waitingAmount)
+            {
+                switchActions[currentTransition].StartAction();
+                chargingAction.Reset();
+                waitingForSwitch = false;
+            }
+        }
+        if (!waitingForSwitch && currentTransition <= totalTransitions)
+        {
+            if (currentTransition == totalTransitions)
+            {
+                Switch();
+                currentTransition++;
+            }
+            else
+            {
+                if (switchActions[currentTransition].isDone())
+                {
+                    currentTransition++;
+                    if (currentTransition != totalTransitions)
+                        switchActions[currentTransition].StartAction();
+                }
+            }
+        }
+
+        if (!waitingForSwitch && currentTransition > totalTransitions)
+        {
+            transform.position = player.transform.position;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        onTarget = true;
+        Debug.Log("Starting Timer");
+    }
+
+    private void Switch()
+    {
+        foreach (var mvt in idleMovement)
+        {
+            mvt.StopResume();
+        }
+        
+        foreach (var mvt in followingMovement)
+        {
+            mvt.StopResume();
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        chargingAction.Reset();
+        onTarget = false;
+        timer = 0;
+    }
+}

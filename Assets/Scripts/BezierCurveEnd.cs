@@ -33,11 +33,12 @@ public class DrawBezierCurveEnd : Editor
     {
         BezierCurveEnd bc = target as BezierCurveEnd;
 
-        bc.startTangent =bc.startPoint +  (Vector3.Normalize(bc.previous.endPoint - bc.previous.endTangent) * bc.magnitudeStart);
+        //bc.startTangent =bc.startPoint +  (Vector3.Normalize(bc.previous.endPoint - bc.previous.endTangent) * bc.magnitudeStart);
         bc.startPoint = bc.previous.endPoint;
-
+        bc.endTangent = Handles.PositionHandle(bc.endTangent, Quaternion.identity);
+        bc.startTangent = Handles.PositionHandle(bc.startTangent, Quaternion.identity);
         bc.endPoint =  bc.end.startPoint;
-        bc.endTangent = bc.endPoint +  (Vector3.Normalize(bc.endPoint  - bc.end.startTangent) * bc.magnitudeEnd);
+        //bc.endTangent = bc.endPoint +  (Vector3.Normalize(bc.endPoint  - bc.end.startTangent) * bc.magnitudeEnd);
 
         Handles.DrawBezier(bc.startPoint, bc.endPoint, bc.startTangent, bc.endTangent, Color.red, null, 2f);
     }
