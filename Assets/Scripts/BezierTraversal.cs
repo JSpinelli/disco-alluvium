@@ -11,7 +11,8 @@ public class BezierTraversal : MonoBehaviour
     public BezierCurveBuilder path;
 
     public GameObject movableThing;
-    public float speed = 10f;
+    public float speed = 1f;
+    public float offset = 0f;
     int i = 0;
     float percentage = 0;
     public float movementStep = 0.1f;
@@ -29,6 +30,7 @@ public class BezierTraversal : MonoBehaviour
         movableThing.transform.position = path.curve[0].startPoint;
         currentSection = path.curve[0];
         prevPos = transform.position;
+        percentage = offset;
     }
 
     private void FixedUpdate()
@@ -45,7 +47,7 @@ public class BezierTraversal : MonoBehaviour
         {
             if (movableThing.transform.position != nextPosition)
             {
-                Vector3 objective = Vector3.MoveTowards(movableThing.transform.position, nextPosition, Time.deltaTime * currentSection.spreadThroughSection.Evaluate(percentage) *currentSection.speedThroughSection);
+                Vector3 objective = Vector3.MoveTowards(movableThing.transform.position, nextPosition, Time.deltaTime * currentSection.spreadThroughSection.Evaluate(percentage) *currentSection.speedThroughSection * speed);
                 movableThing.transform.position = objective;
             }
             else
