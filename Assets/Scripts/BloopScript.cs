@@ -26,12 +26,12 @@ public class BloopScript : MonoBehaviour
         if (bloopItUp == true)
         {
             bloopGameObj.transform.localScale += scaleChange;
-        }
 
-        if (bloopGameObj.transform.localScale.x > 30)
-        {
-            bloopItUp = false;
-            Destroy(bloopGameObj);
+            if (bloopGameObj.transform.localScale.x > 30)
+            {
+                bloopItUp = false;
+                Destroy(bloopGameObj);
+            }
         }
     }
 
