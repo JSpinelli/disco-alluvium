@@ -30,7 +30,7 @@ public class RelationshipBehaviour : MonoBehaviour
     {
         attractingObjects = new Dictionary<int, Transform>();
         repellingObjects = new Dictionary<int, Transform>();
-        //entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
+        entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -100,32 +100,30 @@ public class RelationshipBehaviour : MonoBehaviour
     private void Repel()
     {
         if (repellingObjects.Count == 0) return; 
-        Vector3 mainDir = Vector3.zero;
+        Vector2 mainDir = Vector2.zero;
         foreach (var obj in repellingObjects)
         {
-            Vector3 dir = (transform.position - obj.Value.position).normalized;
+            Vector2 dir = (transform.position - obj.Value.position).normalized;
             mainDir = mainDir + dir;
         }
         mainDir = mainDir / repellingObjects.Count;
-        // entityRigidbody2D.velocity = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
-        //     Time.deltaTime);        
-        transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
-            Time.deltaTime);
+        entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);    
+        // transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
+        //     Time.deltaTime);
     }
 
     private void Attract()
     {
         if (attractingObjects.Count == 0) return; 
-        Vector3 mainDir = Vector3.zero;
+        Vector2 mainDir = Vector2.zero;
         foreach (var obj in attractingObjects)
         {
-            Vector3 dir = (obj.Value.position - transform.position).normalized;
+            Vector2 dir = (obj.Value.position - transform.position).normalized;
             mainDir = mainDir + dir;
         }
         mainDir = mainDir / attractingObjects.Count;
-        // entityRigidbody2D.velocity  = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
-        //     Time.deltaTime);        
-        transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
-            Time.deltaTime);
+        entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
+        // transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
+        //     Time.deltaTime);
     }
 }
