@@ -59,6 +59,13 @@ public class BezierCurveBuilder : MonoBehaviour
             section.UpdatePos();
         }
     }
+    public void ResetPositions()
+    {
+        foreach (var section in curve)
+        {
+            section.ResetPos();
+        }
+    }
 
     private void Start()
     {
@@ -101,6 +108,11 @@ public class DrawBezierCurveBuilder : Editor
         if(GUILayout.Button("Update"))
         {
             curveBuilder.UpdatePositions();
+        }
+        
+        if(GUILayout.Button("Reset"))
+        {
+            curveBuilder.ResetPositions();
         }
 
         curveBuilder.toggleShow = GUILayout.Toggle(curveBuilder.toggleShow,"Always Show Line");

@@ -7,36 +7,75 @@ public class PlayerMovement : MonoBehaviour
 {
     public float sensitivity;
     private SpriteShapeRenderer asd;
+    public CircleCollider2D collider;
+    public float attractingCooldown;
+    private float attractingCooldownTimer;
+    private float attractingTimer;
+    public float attractingDuration;
+
+    private Rigidbody2D _rigidbody2D;
 
     private Vector3 targetPosition;
+
+    public AudioSource callSound;
     // Start is called before the first frame update
     void Start()
     {
         targetPosition = transform.position;
+        attractingCooldownTimer = attractingCooldown;
+        _rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        Timers();
         Vector3 movement = Vector3.zero;
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
+            
             movement.x = movement.x - sensitivity;
         }        
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             movement.x = movement.x + sensitivity;
         }        
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKey(KeyCode.W))
         {
             movement.y = movement.y + sensitivity;
         }        
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKey(KeyCode.S))
         {
             movement.y = movement.y - sensitivity;
         }
 
-        targetPosition = targetPosition + movement;
-        transform.position = Vector3.Lerp(transform.position, targetPosition,Time.deltaTime);
+        
+
+        if (Input.GetKeyDown(KeyCode.Space) && attractingCooldownTimer >= attractingCooldown)
+        {
+            callSound.Play();
+            collider.enabled = true;
+            attractingCooldownTimer = 0;
+            attractingTimer = 0;
+        }
+
+        _rigidbody2D.velocity = movement;
+    }
+
+    private void Timers()
+    {
+        if (attractingCooldownTimer < attractingCooldown)
+        {
+            attractingCooldownTimer += Time.deltaTime;
+        }
+
+        if (attractingTimer < attractingDuration)
+        {
+            attractingTimer += Time.deltaTime;
+        }
+        else
+        {
+            collider.enabled = false;
+        }
     }
 }

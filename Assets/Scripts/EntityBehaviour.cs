@@ -19,6 +19,8 @@ public class EntityBehaviour : MonoBehaviour
     private int currentTransition;
     private int totalTransitions;
 
+    private bool followingTarget = false;
+
     public GameObject player;
 
     private void Start()
@@ -35,7 +37,7 @@ public class EntityBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (onTarget && waitingForSwitch)
+        if (onTarget && waitingForSwitch && !followingTarget)
         {
             timer += Time.deltaTime;
             chargingAction.NextStep(timer/waitingAmount);
@@ -47,7 +49,7 @@ public class EntityBehaviour : MonoBehaviour
                 waitingForSwitch = false;
             }
         }
-        if (!waitingForSwitch && currentTransition <= totalTransitions)
+        if (!waitingForSwitch && currentTransition <= totalTransitions && !followingTarget)
         {
             if (currentTransition == totalTransitions)
             {
@@ -65,19 +67,19 @@ public class EntityBehaviour : MonoBehaviour
             }
         }
 
-        if (!waitingForSwitch && currentTransition > totalTransitions)
+        if (followingTarget)
         {
-            transform.position = player.transform.position;
+            transform.parent.position = player.transform.position;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        onTarget = true;
-        Debug.Log("Starting Timer");
+        if (other.gameObject.CompareTag("Player"))
+            onTarget = true;
     }
 
-    private void Switch()
+    public void Switch()
     {
         foreach (var mvt in idleMovement)
         {
@@ -88,12 +90,17 @@ public class EntityBehaviour : MonoBehaviour
         {
             mvt.StopResume();
         }
+
+        followingTarget = true;
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        chargingAction.Reset();
-        onTarget = false;
-        timer = 0;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            chargingAction.Reset();
+            onTarget = false;
+            timer = 0;   
+        }
     }
 }
