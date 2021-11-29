@@ -929,6 +929,7 @@ MonoBehaviour:
   path: {fileID: 568733394}
   movableThing: {fileID: 1216732590}
   speed: 10
+  offset: 0
   movementStep: 0.1
 --- !u!114 &568733394
 MonoBehaviour:
@@ -1068,6 +1069,7 @@ MonoBehaviour:
   path: {fileID: 632830554}
   movableThing: {fileID: 1216732590}
   speed: 10
+  offset: 0
   movementStep: 0.1
 --- !u!114 &632830554
 MonoBehaviour:
@@ -1213,6 +1215,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sensitivity: 2
+  collider: {fileID: 872667628}
+  attractingCooldown: 0
+  attractingDuration: 0
+  bloopPrefab: {fileID: 7742887730883911237, guid: f75c262b36795414fa6aaea3d35f9972, type: 3}
+  scaleChange: {x: 0, y: 0, z: 0}
+  callSound: {fileID: 0}
 --- !u!212 &872667626
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1535,6 +1543,7 @@ MonoBehaviour:
   path: {fileID: 1240253803}
   movableThing: {fileID: 418551723}
   speed: 10
+  offset: 0
   movementStep: 0.1
 --- !u!1 &1245147934
 GameObject:
@@ -1865,6 +1874,7 @@ MonoBehaviour:
   path: {fileID: 1464099604}
   movableThing: {fileID: 418551723}
   speed: 10
+  offset: 0
   movementStep: 0.1
 --- !u!1 &1528229144
 GameObject:
