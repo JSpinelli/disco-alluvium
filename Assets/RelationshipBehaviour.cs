@@ -15,7 +15,7 @@ public class RelationshipBehaviour : MonoBehaviour
     private Dictionary<int, Transform> attractingObjects;
     private Dictionary<int, Transform> repellingObjects;
     
-    public float movementSpeed = 2f;
+    private float movementSpeed = 0.01f;
     public Types myTag;
 
     public EntityBehaviour myBehaviour;
