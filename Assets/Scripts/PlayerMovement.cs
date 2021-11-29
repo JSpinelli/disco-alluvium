@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private float attractingCooldownTimer;
     private float attractingTimer;
     public float attractingDuration;
+    
+    private GameObject bloopGameObj;
+    public GameObject bloopPrefab;
+    public Vector3 scaleChange;
+
+    private bool bloopItUp = false;
 
     private Rigidbody2D _rigidbody2D;
 
@@ -54,9 +60,21 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && attractingCooldownTimer >= attractingCooldown)
         {
             callSound.Play();
+            BloopIt();
             collider.enabled = true;
             attractingCooldownTimer = 0;
             attractingTimer = 0;
+        }
+        
+        if (bloopItUp)
+        {
+            bloopGameObj.transform.localScale += scaleChange;
+
+            if (bloopGameObj.transform.localScale.x > 30)
+            {
+                bloopItUp = false;
+                Destroy(bloopGameObj);
+            }
         }
 
         _rigidbody2D.velocity = movement;
@@ -77,5 +95,11 @@ public class PlayerMovement : MonoBehaviour
         {
             collider.enabled = false;
         }
+    }
+    
+    public void BloopIt()
+    {
+        bloopGameObj = Instantiate(bloopPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
+        bloopItUp = true;
     }
 }

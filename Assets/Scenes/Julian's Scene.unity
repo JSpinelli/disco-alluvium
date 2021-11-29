@@ -2789,6 +2789,8 @@ MonoBehaviour:
   collider: {fileID: 872667630}
   attractingCooldown: 10
   attractingDuration: 8
+  bloopPrefab: {fileID: 7742887730883911237, guid: f75c262b36795414fa6aaea3d35f9972, type: 3}
+  scaleChange: {x: 4, y: 4, z: 0}
   callSound: {fileID: 872667631}
 --- !u!212 &872667626
 SpriteRenderer:
