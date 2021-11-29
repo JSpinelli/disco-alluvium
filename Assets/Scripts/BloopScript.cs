@@ -37,6 +37,7 @@ public class BloopScript : MonoBehaviour
 
     public void BloopIt()
     {
+        Destroy(GameObject.FindWithTag("Blooper"));
         bloopGameObj = Instantiate(bloopPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
         bloopItUp = true;
         GetComponent<AudioSource>().Play();
