@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
 
     public float spawnTimer;
+
+    public float playerAttractionRate = 1f;
+
+    [HideInInspector] public bool attractingActive = false;
     
     private float timeToSpawn;
 

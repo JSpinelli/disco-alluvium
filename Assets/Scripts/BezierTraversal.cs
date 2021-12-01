@@ -58,8 +58,6 @@ public class BezierTraversal : MonoBehaviour
                         Time.deltaTime * currentSection.spreadThroughSection.Evaluate(percentage) *
                         currentSection.speedThroughSection * speed);
                     movableThing.transform.position = objective;
-                    Debug.Log("Moving "+objective);
-                    Debug.Log("Objctive "+nextPosition);
                 }
                 else
                 {
