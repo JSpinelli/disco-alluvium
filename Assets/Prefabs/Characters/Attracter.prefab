@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idleMovement:
-  - {fileID: 5845531459347051203}
+  - {fileID: 5845531460311181328}
   followingMovement:
   - {fileID: 5845531460311181328}
   waitingAmount: 10
