@@ -305,7 +305,7 @@ Transform:
   m_LocalScale: {x: 7.5167, y: 7.5167, z: 7.5167}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &54184967
 GameObject:
@@ -780,10 +780,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 116510796}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &116510795
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1541,7 +1543,7 @@ Transform:
   - {fileID: 1144896567}
   - {fileID: 2064377159}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!1 &211455280
 GameObject:
@@ -1911,10 +1913,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 320968365}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &320968364
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2140,7 +2144,7 @@ Transform:
   - {fileID: 1824062470}
   - {fileID: 499872022}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360681644
 GameObject:
@@ -2187,10 +2191,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 360681648}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &360681647
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2373,10 +2379,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 369892697}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &369892696
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2723,10 +2731,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 392537032}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &392537031
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3172,10 +3182,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 211455282}
-  myRenderer: {fileID: 187526503}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &419993999
 Transform:
   m_ObjectHideFlags: 0
@@ -3307,10 +3319,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 774520381}
-  myRenderer: {fileID: 399328832}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &432350607
 Transform:
   m_ObjectHideFlags: 0
@@ -3735,10 +3749,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 507472084}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &507472083
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3918,10 +3934,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 517516491}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &517516490
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4035,10 +4053,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 499872023}
-  myRenderer: {fileID: 674570509}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &542336824
 Transform:
   m_ObjectHideFlags: 0
@@ -4656,10 +4676,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 1228138124}
-  myRenderer: {fileID: 720902138}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &618022310
 Transform:
   m_ObjectHideFlags: 0
@@ -5026,10 +5048,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 652970397}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &652970396
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5142,10 +5166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 653755136}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &653755135
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5360,10 +5386,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 682978856}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &682978855
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5543,10 +5571,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 711456370}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &711456369
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5930,7 +5960,7 @@ Transform:
   m_LocalScale: {x: 6.163694, y: 6.163694, z: 6.163694}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &751915415
 GameObject:
@@ -5977,10 +6007,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 751915419}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &751915418
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6160,10 +6192,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 756420202}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &756420201
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6276,10 +6310,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 770376056}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &770376055
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6485,10 +6521,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 777548199}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &777548198
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6620,7 +6658,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &818994864
 GameObject:
@@ -6980,10 +7018,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 855983378}
-  myRenderer: {fileID: 1531411720}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &837041647
 Transform:
   m_ObjectHideFlags: 0
@@ -7044,10 +7084,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 843073777}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &843073776
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7532,10 +7574,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 598328320}
-  myRenderer: {fileID: 1899784965}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &884583196
 Transform:
   m_ObjectHideFlags: 0
@@ -7812,6 +7856,7 @@ GameObject:
   - component: {fileID: 938053717}
   - component: {fileID: 938053716}
   - component: {fileID: 938053715}
+  - component: {fileID: 938053722}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -7988,8 +8033,115 @@ Transform:
   m_Children:
   - {fileID: 348484149}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!96 &938053722
+TrailRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 938053714}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2f9c71e7858c95243877542d6cdc49e3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 5
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0.9952698
+        inSlope: -2.6919448
+        outSlope: -2.6919448
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.045833334
+      - serializedVersion: 3
+        time: 1.0083313
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.24793231
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0.9999995, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 1
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_MinVertexDistance: 0.1
+  m_Autodestruct: 0
+  m_Emitting: 1
 --- !u!1 &950028592
 GameObject:
   m_ObjectHideFlags: 0
@@ -8398,6 +8550,63 @@ Transform:
   m_Father: {fileID: 1037214049}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &985075460
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.081955
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -12.666864
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278659, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8981899040877278663, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
+      propertyPath: m_Name
+      value: Color Changer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
 --- !u!1 &990323210
 GameObject:
   m_ObjectHideFlags: 0
@@ -8580,10 +8789,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1029948944}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1029948943
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8764,10 +8975,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 2125928036}
-  myRenderer: {fileID: 983225267}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1037214049
 Transform:
   m_ObjectHideFlags: 0
@@ -8863,7 +9076,7 @@ Transform:
   m_LocalScale: {x: 7.5167, y: 7.5167, z: 7.5167}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1070696122
 GameObject:
@@ -9063,7 +9276,7 @@ Transform:
   - {fileID: 1653485602}
   - {fileID: 72308414}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1100144692
 GameObject:
@@ -9212,10 +9425,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1108381443}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1108381442
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -9390,7 +9605,7 @@ Transform:
   m_LocalScale: {x: 37.971863, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1123067251
 GameObject:
@@ -9438,10 +9653,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 1362446253}
-  myRenderer: {fileID: 980129585}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1123067254
 Transform:
   m_ObjectHideFlags: 0
@@ -9695,7 +9912,7 @@ Transform:
   - {fileID: 572056846}
   - {fileID: 1492902893}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1154257541
 GameObject:
@@ -9742,10 +9959,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1154257545}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1154257544
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10031,10 +10250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 317683686}
-  myRenderer: {fileID: 9250335}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1209045519
 Transform:
   m_ObjectHideFlags: 0
@@ -10096,10 +10317,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 598551041}
-  myRenderer: {fileID: 498506881}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1212411759
 Transform:
   m_ObjectHideFlags: 0
@@ -10288,7 +10511,7 @@ Transform:
   m_LocalScale: {x: 7.5167, y: 7.5167, z: 7.5167}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1231113784
 GameObject:
@@ -10336,10 +10559,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 1824062471}
-  myRenderer: {fileID: 1249920979}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1231113787
 Transform:
   m_ObjectHideFlags: 0
@@ -10779,10 +11004,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1304397586}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1304397585
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -10895,10 +11122,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1312668455}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1312668454
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -11043,6 +11272,10 @@ MonoBehaviour:
   repeller: {fileID: 6593596396480381520, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
   colorChanger: {fileID: 8981899040877278663, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
   nothing: {fileID: 5865943372697099485, guid: bc2612be764a13745b8a19c113275301, type: 3}
+  amountOfNothingFollowing: 0
+  amountOfAttracterFollowing: 0
+  amountOfRepellerFollowing: 0
+  amountOfColorChangersFollowing: 0
   spawningEnabled: 0
 --- !u!4 &1323318315
 Transform:
@@ -11059,7 +11292,7 @@ Transform:
   - {fileID: 1700732851}
   - {fileID: 2060296609}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1327550444
 GameObject:
@@ -11470,7 +11703,7 @@ Transform:
   m_LocalScale: {x: 13.464664, y: 13.464664, z: 13.464664}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1384159981
 GameObject:
@@ -11891,10 +12124,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 79047503}
-  myRenderer: {fileID: 646763583}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1459844048
 Transform:
   m_ObjectHideFlags: 0
@@ -12150,7 +12385,7 @@ Transform:
   m_LocalScale: {x: 8.444261, y: 8.444261, z: 8.444261}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1526663006
 GameObject:
@@ -12259,7 +12494,7 @@ Transform:
   m_LocalScale: {x: 37.971863, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -39.664}
 --- !u!1 &1531411719
 GameObject:
@@ -12952,7 +13187,7 @@ Transform:
   m_LocalScale: {x: 37.97186, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 32.054}
 --- !u!1 &1653485601
 GameObject:
@@ -13069,10 +13304,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1672609482}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1672609481
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13185,10 +13422,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1676881566}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1676881565
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13301,10 +13540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1677502759}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1677502758
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13417,10 +13658,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1679069418}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1679069417
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13534,10 +13777,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 399143224}
-  myRenderer: {fileID: 449968845}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1684556887
 Transform:
   m_ObjectHideFlags: 0
@@ -13794,10 +14039,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1713209866}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1713209865
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -13911,10 +14158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 377649800}
-  myRenderer: {fileID: 1160525069}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1721255964
 Transform:
   m_ObjectHideFlags: 0
@@ -14042,10 +14291,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1741811522}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1741811521
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14220,7 +14471,7 @@ Transform:
   m_LocalScale: {x: 18.135363, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1753153372
 GameObject:
@@ -14267,10 +14518,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1753153376}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1753153375
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14445,7 +14698,7 @@ Transform:
   m_LocalScale: {x: 37.971863, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 67.102}
 --- !u!1 &1791453374
 GameObject:
@@ -14492,10 +14745,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1791453378}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1791453377
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -14877,10 +15132,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1825854812}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1825854811
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15028,7 +15285,7 @@ Transform:
   m_LocalScale: {x: 7.5167, y: 7.5167, z: 7.5167}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1842667450
 GameObject:
@@ -15277,7 +15534,7 @@ Transform:
   m_LocalScale: {x: 18.135363, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!1 &1889373670
 GameObject:
@@ -15325,7 +15582,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 11.459347
+  orthographic size: 46.99
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -15377,11 +15634,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889373670}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.4499995, y: -15.183348, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -6.6, y: 20.9, z: -10}
+  m_LocalScale: {x: 2.1583, y: 2.1583, z: 2.1583}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1899784964
 GameObject:
@@ -15597,10 +15854,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1914003668}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1914003667
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -15781,10 +16040,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 166964517}
-  myRenderer: {fileID: 651747000}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &1922682303
 Transform:
   m_ObjectHideFlags: 0
@@ -15912,10 +16173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1928193632}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1928193631
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16337,10 +16600,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 54184969}
-  myRenderer: {fileID: 650101169}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &2011928816
 Transform:
   m_ObjectHideFlags: 0
@@ -16401,10 +16666,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 2012701345}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &2012701344
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -16652,10 +16919,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 1131200566}
-  myRenderer: {fileID: 1352419994}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &2038081299
 Transform:
   m_ObjectHideFlags: 0
@@ -16717,10 +16986,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 572056847}
-  myRenderer: {fileID: 1100144693}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &2044413435
 Transform:
   m_ObjectHideFlags: 0
@@ -17170,7 +17441,7 @@ Transform:
   m_LocalScale: {x: 37.971863, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -67.102}
 --- !u!1 &2075630186
 GameObject:
@@ -17322,7 +17593,7 @@ Transform:
   m_LocalScale: {x: 10.906656, y: 10.906656, z: 10.906656}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090781930
 GameObject:
@@ -17510,10 +17781,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 2047860319}
-  myRenderer: {fileID: 1978455239}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &2094402704
 Transform:
   m_ObjectHideFlags: 0
@@ -17575,10 +17848,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 1492902894}
-  myRenderer: {fileID: 102041510}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &2115347305
 Transform:
   m_ObjectHideFlags: 0
@@ -17640,10 +17915,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 1645987819}
-  myRenderer: {fileID: 1385610495}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!4 &2119975626
 Transform:
   m_ObjectHideFlags: 0
