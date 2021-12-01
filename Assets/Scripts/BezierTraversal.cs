@@ -37,6 +37,7 @@ public class BezierTraversal : MonoBehaviour
     {
         if (moving)
         {
+            if (path.curve.Count == 0) return;
             if (prevPos != transform.position)
             {
                 movableThing.transform.position = movableThing.transform.position + (transform.position - prevPos);

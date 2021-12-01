@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using UnityEngine.U2D;
 
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 targetPosition;
 
-    public AudioSource callSound;
+    public StudioEventEmitter callSound;
     // Start is called before the first frame update
     void Start()
     {
