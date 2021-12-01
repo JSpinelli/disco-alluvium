@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public GameObject colorChanger;
     public GameObject nothing;
 
+    public bool spawningEnabled = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -38,14 +40,17 @@ public class GameManager : MonoBehaviour
     }
     void Update()
     {
-        if (timeToSpawn < spawnTimer)
+        if (spawningEnabled)
         {
-            timeToSpawn += Time.deltaTime;
-        }
-        else
-        {
-            timeToSpawn = 0;
-            Spawn();
+            if (timeToSpawn < spawnTimer)
+            {
+                timeToSpawn += Time.deltaTime;
+            }
+            else
+            {
+                timeToSpawn = 0;
+                Spawn();
+            }   
         }
     }
 
