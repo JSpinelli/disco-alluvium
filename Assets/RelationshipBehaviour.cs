@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RelationshipBehaviour : MonoBehaviour
 {
@@ -17,14 +18,17 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private bool followingPlayer;
     
-    private float movementSpeed = 0.01f;
+    public float movementSpeed = 0.01f;
     public Types myTag;
 
     public EntityBehaviour myBehaviour;
-    public SpriteRenderer myRenderer;
+    public ColorVariants myColor;
 
     [HideInInspector]
     public bool swapped = false;
+
+    [HideInInspector]
+    public int myColorIndex;
 
     private Rigidbody2D entityRigidbody2D;
 
@@ -33,6 +37,7 @@ public class RelationshipBehaviour : MonoBehaviour
         attractingObjects = new Dictionary<int, Transform>();
         repellingObjects = new Dictionary<int, Transform>();
         entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
+        myColorIndex = Random.Range(1, 5);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -58,10 +63,13 @@ public class RelationshipBehaviour : MonoBehaviour
             }
         }
 
-        if (thing.CompareTag("ColorChange") && myTag != Types.ColorChange)
+        if (thing.CompareTag("ColorChange") )//&& myTag != Types.ColorChange)
         {
-            // Should Swap Sprites
-            //myRenderer.sprite
+            if (myColor != null)
+            {
+                RelationshipBehaviour otherBehaviour = thing.GetComponent<RelationshipBehaviour>();
+                myColor.SwitchTo(otherBehaviour.myColorIndex);
+            }
         }
 
         if (thing.CompareTag("Player"))

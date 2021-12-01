@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     public GameObject colorChanger;
     public GameObject nothing;
 
+    public int amountOfNothingFollowing;
+    public int amountOfAttracterFollowing;
+    public int amountOfRepellerFollowing;
+    public int amountOfColorChangersFollowing;
+
     public bool spawningEnabled = false;
 
     private void Awake()

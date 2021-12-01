@@ -230,10 +230,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 33681524}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &33681523
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -346,10 +348,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 40022667}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &40022666
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -652,10 +656,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 71913139}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &71913138
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -967,10 +973,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 172627719}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &172627718
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1145,10 +1153,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 180481326}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &180481325
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1261,10 +1271,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 200113174}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &200113173
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1377,10 +1389,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 269968139}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &269968138
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1724,10 +1738,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   spawnTimer: 10
+  playerAttractionRate: 1
+  attractingActive: 0
   attracter: {fileID: 5845531460653150851, guid: e1e39c2aebee02b4f9c5be9e6854f354, type: 3}
   repeller: {fileID: 6593596396480381520, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
   colorChanger: {fileID: 8981899040877278663, guid: 542214bfc4b803347817aafffcd424c2, type: 3}
   nothing: {fileID: 5865943372697099485, guid: bc2612be764a13745b8a19c113275301, type: 3}
+  amountOfNothingFollowing: 0
+  amountOfAttracterFollowing: 0
+  amountOfRepellerFollowing: 0
+  amountOfColorChangersFollowing: 0
   spawningEnabled: 1
 --- !u!4 &328695880
 Transform:
@@ -2068,10 +2088,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 449538061}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &449538060
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2498,10 +2520,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 543672577}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &543672576
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2863,10 +2887,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 601784747}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &601784746
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3182,10 +3208,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 748634278}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &748634277
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3298,10 +3326,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 780150753}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &780150752
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3616,10 +3646,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 811127650}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &811127649
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3732,10 +3764,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 811520118}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &811520117
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4417,10 +4451,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 990798400}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &990798399
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4533,10 +4569,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1054040587}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1054040586
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4649,10 +4687,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1100650238}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1100650237
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5109,10 +5149,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1263603326}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1263603325
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5225,10 +5267,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1273303556}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1273303555
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5417,10 +5461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1346295510}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1346295509
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6074,10 +6120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1534465338}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1534465337
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6190,10 +6238,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1556866502}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1556866501
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6376,10 +6426,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1669435577}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1669435576
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6492,10 +6544,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1687950582}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1687950581
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6814,10 +6868,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1719551201}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1719551200
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7000,10 +7056,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1726828932}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1726828931
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7186,10 +7244,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1742865283}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1742865282
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7644,10 +7704,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1843517350}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1843517349
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7892,10 +7954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 1971038881}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &1971038880
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8078,10 +8142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 2028639368}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &2028639367
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8194,10 +8260,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 2048332809}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &2048332808
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8310,10 +8378,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 4
   myBehaviour: {fileID: 0}
-  myRenderer: {fileID: 2073222394}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &2073222393
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -8451,6 +8521,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!1001 &4458081663857439748
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4458081662951671987, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_Name
+      value: Color Changer Group
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -22.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4458081662951671996, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
 --- !u!1001 &5845531460708037400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8468,11 +8595,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5845531460653150855, guid: e1e39c2aebee02b4f9c5be9e6854f354, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 39.6
+      value: 38.6
       objectReference: {fileID: 0}
     - target: {fileID: 5845531460653150855, guid: e1e39c2aebee02b4f9c5be9e6854f354, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -12.4
+      value: -8.8
       objectReference: {fileID: 0}
     - target: {fileID: 5845531460653150855, guid: e1e39c2aebee02b4f9c5be9e6854f354, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8572,6 +8699,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 943813367}
     m_Modifications:
+    - target: {fileID: 1845731067345565462, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: myDefault
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845731067345565462, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: organgeShade.b
+      value: 0.088679194
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845731067345565462, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: organgeShade.g
+      value: 0.5166748
+      objectReference: {fileID: 0}
+    - target: {fileID: 1845731067345565462, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: organgeShade.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109749881448571960, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109749881448571960, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2109749881448571960, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6593596396480381516, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
       propertyPath: m_RootOrder
       value: 0
