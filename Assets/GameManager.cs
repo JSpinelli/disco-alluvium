@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            timeToSpawn = 0;
             Spawn();
         }
     }
