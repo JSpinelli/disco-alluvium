@@ -21,6 +21,7 @@ public class EntityBehaviour : MonoBehaviour
 
     private bool followingTarget = false;
 
+    [HideInInspector]
     public GameObject player;
 
     private void Start()
@@ -33,6 +34,7 @@ public class EntityBehaviour : MonoBehaviour
         currentTransition = 0;
         totalTransitions = switchActions.Count;
         waitingForSwitch = true;
+        player = GameManager.instance.player;
     }
 
     private void Update()
@@ -40,12 +42,15 @@ public class EntityBehaviour : MonoBehaviour
         if (onTarget && waitingForSwitch && !followingTarget)
         {
             timer += Time.deltaTime;
-            chargingAction.NextStep(timer/waitingAmount);
+            if (chargingAction)
+                chargingAction.NextStep(timer/waitingAmount);
             
             if (timer > waitingAmount)
             {
-                switchActions[currentTransition].StartAction();
-                chargingAction.Reset();
+                if(switchActions.Count >0)
+                    switchActions[currentTransition].StartAction();
+                if (chargingAction)
+                    chargingAction.Reset();
                 waitingForSwitch = false;
             }
         }
@@ -98,7 +103,8 @@ public class EntityBehaviour : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            chargingAction.Reset();
+            if (chargingAction)
+                chargingAction.Reset();
             onTarget = false;
             timer = 0;   
         }
