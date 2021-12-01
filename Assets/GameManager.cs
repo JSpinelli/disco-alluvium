@@ -4,12 +4,20 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [HideInInspector]
     public static GameManager instance;
 
     [HideInInspector]
     public GameObject player;
+
+    public float spawnTimer;
     
+    private float timeToSpawn;
+
+    public GameObject attracter;
+    public GameObject repeller;
+    public GameObject colorChanger;
+    public GameObject nothing;
+
     private void Awake()
     {
         if (instance == null)
@@ -28,15 +36,20 @@ public class GameManager : MonoBehaviour
             Debug.LogWarning("There is no GameObject named Player on this scene");
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        if (timeToSpawn < spawnTimer)
+        {
+            timeToSpawn += Time.deltaTime;
+        }
+        else
+        {
+            Spawn();
+        }
+    }
+
+    private void Spawn()
+    {
+        Instantiate(nothing, transform.position,Quaternion.identity);
     }
 }
