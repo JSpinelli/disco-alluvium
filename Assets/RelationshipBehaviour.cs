@@ -35,17 +35,14 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision happening "+ other.gameObject.name);
         GameObject thing = other.gameObject;
         if (thing.CompareTag("Repel") && myTag != Types.Repel)
         {
-            Debug.Log(transform.name+ " repelled by "+thing.name);
             repellingObjects.Add(other.gameObject.GetInstanceID(),thing.transform);
         }
 
         if (thing.CompareTag("Attract") && myTag != Types.Attract)
         {
-            Debug.Log(transform.name+ " attracted by "+thing.name);
             attractingObjects.Add(thing.GetInstanceID(),thing.transform);
         }
 

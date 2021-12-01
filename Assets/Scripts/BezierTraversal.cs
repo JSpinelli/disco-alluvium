@@ -26,18 +26,22 @@ public class BezierTraversal : MonoBehaviour
 
     private void Start()
     {
-        nextPosition = path.curve[0].CalculatePosition(0.01f);
-        movableThing.transform.position = path.curve[0].startPoint;
-        currentSection = path.curve[0];
+        if (path.curve.Count != 0)
+        {
+            nextPosition = path.curve[0].CalculatePosition(0.01f);
+            movableThing.transform.position = path.curve[0].startPoint;
+            currentSection = path.curve[0];   
+        }
         prevPos = transform.position;
         percentage = offset;
     }
 
     private void FixedUpdate()
     {
+        if (path.curve.Count == 0) return;
         if (moving)
         {
-            if (path.curve.Count == 0) return;
+            
             if (prevPos != transform.position)
             {
                 movableThing.transform.position = movableThing.transform.position + (transform.position - prevPos);
@@ -86,7 +90,6 @@ public class BezierTraversal : MonoBehaviour
     public void StopResume()
     {
         moving = !moving;
-        Debug.Log(moving? gameObject.name+" Enabled": gameObject.name+ " Disabled");
     }
 
 
