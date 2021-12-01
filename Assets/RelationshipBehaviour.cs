@@ -14,8 +14,10 @@ public class RelationshipBehaviour : MonoBehaviour
     }
     private Dictionary<int, Transform> attractingObjects;
     private Dictionary<int, Transform> repellingObjects;
+
+    private bool followingPlayer;
     
-    public float movementSpeed = 2f;
+    private float movementSpeed = 0.01f;
     public Types myTag;
 
     public EntityBehaviour myBehaviour;
@@ -35,17 +37,14 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision happening "+ other.gameObject.name);
         GameObject thing = other.gameObject;
         if (thing.CompareTag("Repel") && myTag != Types.Repel)
         {
-            Debug.Log(transform.name+ " repelled by "+thing.name);
             repellingObjects.Add(other.gameObject.GetInstanceID(),thing.transform);
         }
 
         if (thing.CompareTag("Attract") && myTag != Types.Attract)
         {
-            Debug.Log(transform.name+ " attracted by "+thing.name);
             attractingObjects.Add(thing.GetInstanceID(),thing.transform);
         }
 
@@ -67,7 +66,8 @@ public class RelationshipBehaviour : MonoBehaviour
 
         if (thing.CompareTag("Player"))
         {
-            attractingObjects.Add(thing.GetInstanceID(),thing.transform);
+            //attractingObjects.Add(thing.GetInstanceID(),thing.transform);
+            followingPlayer = true;
         }
     }
 
@@ -93,6 +93,7 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void Update()
     {
+        //if (followingPlayer && !GameManager.instance.attractingActive) followingPlayer = false;
         Repel();
         Attract();
     }
@@ -104,7 +105,8 @@ public class RelationshipBehaviour : MonoBehaviour
         foreach (var obj in repellingObjects)
         {
             Vector2 dir = (transform.position - obj.Value.position).normalized;
-            mainDir = mainDir + dir;
+            float dist = Vector2.Distance(obj.Value.position, transform.position);
+            mainDir = mainDir + (dir*(1/dist));
         }
         mainDir = mainDir / repellingObjects.Count;
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);    
@@ -114,14 +116,25 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void Attract()
     {
-        if (attractingObjects.Count == 0) return; 
         Vector2 mainDir = Vector2.zero;
-        foreach (var obj in attractingObjects)
+        if (attractingObjects.Count != 0)
         {
-            Vector2 dir = (obj.Value.position - transform.position).normalized;
-            mainDir = mainDir + dir;
+            
+            foreach (var obj in attractingObjects)
+            {
+                Vector2 dir = (obj.Value.position - transform.position).normalized;
+                float dist = Vector2.Distance(obj.Value.position, transform.position);
+                mainDir = mainDir + (dir*dist);
+            }
+
+            mainDir = mainDir / attractingObjects.Count;
         }
-        mainDir = mainDir / attractingObjects.Count;
+        if (followingPlayer)
+        {
+            Vector2 dir = (GameManager.instance.player.transform.position - transform.position).normalized;
+            float dist = Vector2.Distance(GameManager.instance.player.transform.position, transform.position);
+            mainDir = mainDir + (dir * (GameManager.instance.playerAttractionRate * dist));
+        }
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
         // transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
         //     Time.deltaTime);
