@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RelationshipBehaviour : MonoBehaviour
 {
@@ -14,15 +15,20 @@ public class RelationshipBehaviour : MonoBehaviour
     }
     private Dictionary<int, Transform> attractingObjects;
     private Dictionary<int, Transform> repellingObjects;
+
+    private bool followingPlayer;
     
-    private float movementSpeed = 0.01f;
+    public float movementSpeed = 0.01f;
     public Types myTag;
 
     public EntityBehaviour myBehaviour;
-    public SpriteRenderer myRenderer;
+    public ColorVariants myColor;
 
     [HideInInspector]
     public bool swapped = false;
+
+    [HideInInspector]
+    public int myColorIndex;
 
     private Rigidbody2D entityRigidbody2D;
 
@@ -31,6 +37,35 @@ public class RelationshipBehaviour : MonoBehaviour
         attractingObjects = new Dictionary<int, Transform>();
         repellingObjects = new Dictionary<int, Transform>();
         entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
+        myColorIndex = Random.Range(1, 5);
+        switch (myTag)
+        {
+            case Types.Attract:
+            {
+                GameManager.instance.amountOfAttracter++;
+                break;
+            }
+            case Types.Nothing:
+            {
+                GameManager.instance.amountOfNothing++;
+                break;
+            }
+            case Types.ColorChange:
+            {
+                GameManager.instance.amountOfColorChangers++;
+                break;
+            }
+            case Types.Repel:
+            {
+                GameManager.instance.amountOfRepellers++;
+                break;
+            }
+            case Types.Orbit:
+            {
+                GameManager.instance.amountOfOrbiters++;
+                break;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -56,15 +91,119 @@ public class RelationshipBehaviour : MonoBehaviour
             }
         }
 
-        if (thing.CompareTag("ColorChange") && myTag != Types.ColorChange)
+        if (thing.CompareTag("ColorChange") )//&& myTag != Types.ColorChange)
         {
-            // Should Swap Sprites
-            //myRenderer.sprite
+            if (myColor != null)
+            {
+                RelationshipBehaviour otherBehaviour = thing.GetComponent<RelationshipBehaviour>();
+                myColor.SwitchTo(otherBehaviour.myColorIndex);
+                ChangeColorAmount();
+            }
         }
 
-        if (thing.CompareTag("Player"))
+        if (thing.CompareTag("Player") && !followingPlayer)
         {
-            attractingObjects.Add(thing.GetInstanceID(),thing.transform);
+            Debug.Log("Triggered");
+            followingPlayer = true;
+            AddMeToTypeCount();
+            ChangeColorAmount();
+        }
+    }
+
+    public void AddMeToTypeCount()
+    {
+        switch (myTag)
+        {
+            case Types.Attract:
+            {
+                GameManager.instance.amountOfAttracterFollowing++;
+                break;
+            }
+            case Types.Nothing:
+            {
+                GameManager.instance.amountOfNothingFollowing++;
+                break;
+            }
+            case Types.ColorChange:
+            {
+                GameManager.instance.amountOfColorChangersFollowing++;
+                break;
+            }
+            case Types.Repel:
+            {
+                GameManager.instance.amountOfRepellerFollowing++;
+                break;
+            }
+            case Types.Orbit:
+            {
+                GameManager.instance.amountOfOrbitersFollowing++;
+                break;
+            }
+        }
+    }
+
+    public void ChangeColorAmount()
+    {
+        if (myColor == null) return;
+        switch (myColor.myCurrentIndex)
+        {
+            case 1:
+            {
+                GameManager.instance.amountOfOrange++;
+                break;
+            }
+            case 2:
+            {
+                GameManager.instance.amountOfPurple++;
+                break;
+            }
+            case 3:
+            {
+                GameManager.instance.amountOfGreen++;
+                break;
+            }
+            case 4:
+            {
+                GameManager.instance.amountOfBlue++;
+                break;
+            }
+            case 5:
+            {
+                GameManager.instance.amountOfPink++;
+                break;
+            }
+        }
+    }
+
+    public void RemoveMeFromTypeCount()
+    {
+        switch (myTag)
+        {
+            case Types.Attract:
+            {
+                GameManager.instance.amountOfAttracterFollowing--;
+                break;
+            }
+            case Types.Nothing:
+            {
+                GameManager.instance.amountOfNothingFollowing--;
+                break;
+            }
+            case Types.ColorChange:
+            {
+                GameManager.instance.amountOfColorChangersFollowing--;
+                break;
+            }
+            case Types.Repel:
+            {
+                GameManager.instance.amountOfRepellerFollowing--;
+                break;
+            }
+            case Types.Orbit:
+            {
+                GameManager.instance.amountOfOrbitersFollowing--;
+                break;
+            }
         }
     }
 
@@ -90,6 +229,7 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void Update()
     {
+        //if (followingPlayer && !GameManager.instance.attractingActive) followingPlayer = false;
         Repel();
         Attract();
     }
@@ -101,7 +241,8 @@ public class RelationshipBehaviour : MonoBehaviour
         foreach (var obj in repellingObjects)
         {
             Vector2 dir = (transform.position - obj.Value.position).normalized;
-            mainDir = mainDir + dir;
+            float dist = Vector2.Distance(obj.Value.position, transform.position);
+            mainDir = mainDir + (dir*(1/dist));
         }
         mainDir = mainDir / repellingObjects.Count;
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);    
@@ -111,14 +252,25 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void Attract()
     {
-        if (attractingObjects.Count == 0) return; 
         Vector2 mainDir = Vector2.zero;
-        foreach (var obj in attractingObjects)
+        if (attractingObjects.Count != 0)
         {
-            Vector2 dir = (obj.Value.position - transform.position).normalized;
-            mainDir = mainDir + dir;
+            
+            foreach (var obj in attractingObjects)
+            {
+                Vector2 dir = (obj.Value.position - transform.position).normalized;
+                float dist = Vector2.Distance(obj.Value.position, transform.position);
+                mainDir = mainDir + (dir*dist);
+            }
+
+            mainDir = mainDir / attractingObjects.Count;
         }
-        mainDir = mainDir / attractingObjects.Count;
+        if (followingPlayer)
+        {
+            Vector2 dir = (GameManager.instance.player.transform.position - transform.position).normalized;
+            float dist = Vector2.Distance(GameManager.instance.player.transform.position, transform.position);
+            mainDir = mainDir + (dir * (GameManager.instance.playerAttractionRate * dist));
+        }
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
         // transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
         //     Time.deltaTime);

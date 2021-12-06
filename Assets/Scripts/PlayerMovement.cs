@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && attractingCooldownTimer >= attractingCooldown)
         {
+            GameManager.instance.attractingActive = true;
             callSound.Play();
             BloopIt();
             collider.enabled = true;
@@ -95,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             collider.enabled = false;
+            GameManager.instance.attractingActive = false;
         }
     }
     

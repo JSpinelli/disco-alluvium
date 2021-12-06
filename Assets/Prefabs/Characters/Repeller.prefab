@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2109749881448571961}
   - component: {fileID: 2109749881448571960}
   - component: {fileID: 2109749881448571966}
+  - component: {fileID: 1845731067345565462}
   m_Layer: 0
   m_Name: Push
   m_TagString: Untagged
@@ -102,6 +103,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1845731067345565462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109749881448571963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eebaaa0e2f0274429471869da29b344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  organgeShade: {r: 1, g: 0.5109794, b: 0, a: 1}
+  purpleShade: {r: 1, g: 1, b: 1, a: 1}
+  greenShade: {r: 0.13808408, g: 1, b: 0.032075405, a: 1}
+  blueShade: {r: 0.069811285, g: 0.16721854, b: 1, a: 1}
+  pinkShade: {r: 0.9056604, g: 0.2426486, b: 0.8305801, a: 1}
+  myDefault: 2
+  myRenderer: {fileID: 2109749881448571960}
 --- !u!1 &6593596394547129877
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,10 +167,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 0
   myBehaviour: {fileID: 6593596396480381523}
-  myRenderer: {fileID: 2109749881448571960}
+  myColor: {fileID: 1845731067345565462}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &3485492444305303925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -216,6 +238,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &6593596394737045684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -282,6 +305,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &6593596395539362266
 MonoBehaviour:
   m_ObjectHideFlags: 0

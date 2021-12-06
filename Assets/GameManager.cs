@@ -9,14 +9,28 @@ public class GameManager : MonoBehaviour
     [HideInInspector]
     public GameObject player;
 
-    public float spawnTimer;
-    
-    private float timeToSpawn;
+    public float playerAttractionRate = 1f;
 
-    public GameObject attracter;
-    public GameObject repeller;
-    public GameObject colorChanger;
-    public GameObject nothing;
+    [HideInInspector] public bool attractingActive = false;
+
+    public int amountOfNothing;
+    public int amountOfAttracter;
+    public int amountOfRepellers;
+    public int amountOfColorChangers;
+    public int amountOfOrbiters;
+    
+    
+    public int amountOfNothingFollowing;
+    public int amountOfAttracterFollowing;
+    public int amountOfRepellerFollowing;
+    public int amountOfColorChangersFollowing;
+    public int amountOfOrbitersFollowing;
+
+    public int amountOfBlue;
+    public int amountOfOrange;
+    public int amountOfPink;
+    public int amountOfPurple;
+    public int amountOfGreen;
 
     private void Awake()
     {
@@ -35,22 +49,5 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("There is no GameObject named Player on this scene");
         }
-    }
-    void Update()
-    {
-        if (timeToSpawn < spawnTimer)
-        {
-            timeToSpawn += Time.deltaTime;
-        }
-        else
-        {
-            timeToSpawn = 0;
-            Spawn();
-        }
-    }
-
-    private void Spawn()
-    {
-        Instantiate(nothing, transform.position,Quaternion.identity);
     }
 }

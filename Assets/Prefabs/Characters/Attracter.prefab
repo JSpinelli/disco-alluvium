@@ -49,6 +49,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &5845531459347051204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,10 +112,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 1
   myBehaviour: {fileID: 5845531460653150852}
-  myRenderer: {fileID: 7887121481189794123}
+  myColor: {fileID: 6590153016811237602}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &5248894767625175331
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,6 +183,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &5845531460311181329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,6 +305,7 @@ GameObject:
   - component: {fileID: 7887121481189794122}
   - component: {fileID: 7887121481189794123}
   - component: {fileID: 7887121481189794164}
+  - component: {fileID: 6590153016811237602}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -363,7 +368,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 20630d3a24e50184693ca518c2295b95, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -392,3 +397,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6590153016811237602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7887121481189794165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eebaaa0e2f0274429471869da29b344, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  organgeShade: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
+  purpleShade: {r: 0.7064646, g: 0.032075405, b: 1, a: 1}
+  greenShade: {r: 0, g: 1, b: 0.011367798, a: 1}
+  blueShade: {r: 0, g: 0.18190622, b: 1, a: 1}
+  pinkShade: {r: 1, g: 0, b: 0.63933516, a: 1}
+  myDefault: 1
+  myRenderer: {fileID: 7887121481189794123}

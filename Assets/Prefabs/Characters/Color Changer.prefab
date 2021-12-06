@@ -151,6 +151,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &8981899039299163205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,10 +214,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementSpeed: 0.01
   myTag: 2
   myBehaviour: {fileID: 8981899040877278662}
-  myRenderer: {fileID: 1032291942378393602}
+  myColor: {fileID: 0}
   swapped: 0
+  myColorIndex: 0
 --- !u!58 &7351987936829516885
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -227,7 +230,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -282,6 +285,7 @@ MonoBehaviour:
   speed: 1
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &8981899040366771864
 MonoBehaviour:
   m_ObjectHideFlags: 0
