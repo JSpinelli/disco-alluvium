@@ -34,9 +34,10 @@ public class ClusterExplosioner : MonoBehaviour
 
             for(int i = 0; i < transform.childCount; i++)
             {
-                transform.GetChild(i).GetComponent<Rigidbody2D>().AddExplosionForce(explosionStrength, this.transform.position, 20);
+                transform.GetChild(i).GetComponent<Rigidbody2D>().AddForce(new Vector3(Random.Range(-1,1), Random.Range(-1, 1), Random.Range(-1, 1)), ForceMode2D.Impulse);
                 transform.GetChild(i).SetParent(parent);
             }
         }
     }
 }
+=
