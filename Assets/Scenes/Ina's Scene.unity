@@ -931,6 +931,7 @@ MonoBehaviour:
   speed: 10
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &568733394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1072,7 @@ MonoBehaviour:
   speed: 10
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!114 &632830554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1575,6 +1577,7 @@ MonoBehaviour:
   speed: 10
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!1 &1245147934
 GameObject:
   m_ObjectHideFlags: 0
@@ -1906,6 +1909,7 @@ MonoBehaviour:
   speed: 10
   offset: 0
   movementStep: 0.1
+  moving: 0
 --- !u!1 &1528229144
 GameObject:
   m_ObjectHideFlags: 0
