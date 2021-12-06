@@ -6,6 +6,8 @@ public class AutoZoom : MonoBehaviour
 {
     int numFollowers;
     GameManager gm;
+    public float divisor;
+    public float startSize;
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,7 @@ public class AutoZoom : MonoBehaviour
 
         if(numFollowers <= 30)
         {
-            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, numFollowers / 3 + 10, Time.deltaTime);
+            Camera.main.orthographicSize = Mathf.Lerp(Camera.main.orthographicSize, (numFollowers / divisor) + startSize, Time.deltaTime);
         }
     }
 }

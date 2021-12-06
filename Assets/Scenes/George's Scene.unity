@@ -7117,6 +7117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0268cb80cd7e47b4780f445087f275c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  divisor: 2
+  startSize: 10
 --- !u!114 &622338326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8368,6 +8370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0268cb80cd7e47b4780f445087f275c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  divisor: 0
+  startSize: 0
 --- !u!1 &746035876
 GameObject:
   m_ObjectHideFlags: 0
