@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public float playerAttractionRate = 1f;
 
     [HideInInspector] public bool attractingActive = false;
+    [HideInInspector] public bool clickActive = false;
 
     public int amountOfNothing;
     public int amountOfAttracter;

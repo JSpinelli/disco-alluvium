@@ -9,6 +9,7 @@ TagManager:
   - ColorChange
   - Orbit
   - Nothing
+  - Blooper
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - UI
   - Ameba Layer
   - Entity Layer
-  - 
+  - Passive Ameba
   - 
   - 
   - 
