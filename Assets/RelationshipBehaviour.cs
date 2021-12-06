@@ -38,6 +38,34 @@ public class RelationshipBehaviour : MonoBehaviour
         repellingObjects = new Dictionary<int, Transform>();
         entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
         myColorIndex = Random.Range(1, 5);
+        switch (myTag)
+        {
+            case Types.Attract:
+            {
+                GameManager.instance.amountOfAttracter++;
+                break;
+            }
+            case Types.Nothing:
+            {
+                GameManager.instance.amountOfNothing++;
+                break;
+            }
+            case Types.ColorChange:
+            {
+                GameManager.instance.amountOfColorChangers++;
+                break;
+            }
+            case Types.Repel:
+            {
+                GameManager.instance.amountOfRepellers++;
+                break;
+            }
+            case Types.Orbit:
+            {
+                GameManager.instance.amountOfOrbiters++;
+                break;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -69,13 +97,113 @@ public class RelationshipBehaviour : MonoBehaviour
             {
                 RelationshipBehaviour otherBehaviour = thing.GetComponent<RelationshipBehaviour>();
                 myColor.SwitchTo(otherBehaviour.myColorIndex);
+                ChangeColorAmount();
             }
         }
 
-        if (thing.CompareTag("Player"))
+        if (thing.CompareTag("Player") && !followingPlayer)
         {
-            //attractingObjects.Add(thing.GetInstanceID(),thing.transform);
+            Debug.Log("Triggered");
             followingPlayer = true;
+            AddMeToTypeCount();
+            ChangeColorAmount();
+        }
+    }
+
+    public void AddMeToTypeCount()
+    {
+        switch (myTag)
+        {
+            case Types.Attract:
+            {
+                GameManager.instance.amountOfAttracterFollowing++;
+                break;
+            }
+            case Types.Nothing:
+            {
+                GameManager.instance.amountOfNothingFollowing++;
+                break;
+            }
+            case Types.ColorChange:
+            {
+                GameManager.instance.amountOfColorChangersFollowing++;
+                break;
+            }
+            case Types.Repel:
+            {
+                GameManager.instance.amountOfRepellerFollowing++;
+                break;
+            }
+            case Types.Orbit:
+            {
+                GameManager.instance.amountOfOrbitersFollowing++;
+                break;
+            }
+        }
+    }
+
+    public void ChangeColorAmount()
+    {
+        if (myColor == null) return;
+        switch (myColor.myCurrentIndex)
+        {
+            case 1:
+            {
+                GameManager.instance.amountOfOrange++;
+                break;
+            }
+            case 2:
+            {
+                GameManager.instance.amountOfPurple++;
+                break;
+            }
+            case 3:
+            {
+                GameManager.instance.amountOfGreen++;
+                break;
+            }
+            case 4:
+            {
+                GameManager.instance.amountOfBlue++;
+                break;
+            }
+            case 5:
+            {
+                GameManager.instance.amountOfPink++;
+                break;
+            }
+        }
+    }
+
+    public void RemoveMeFromTypeCount()
+    {
+        switch (myTag)
+        {
+            case Types.Attract:
+            {
+                GameManager.instance.amountOfAttracterFollowing--;
+                break;
+            }
+            case Types.Nothing:
+            {
+                GameManager.instance.amountOfNothingFollowing--;
+                break;
+            }
+            case Types.ColorChange:
+            {
+                GameManager.instance.amountOfColorChangersFollowing--;
+                break;
+            }
+            case Types.Repel:
+            {
+                GameManager.instance.amountOfRepellerFollowing--;
+                break;
+            }
+            case Types.Orbit:
+            {
+                GameManager.instance.amountOfOrbitersFollowing--;
+                break;
+            }
         }
     }
 

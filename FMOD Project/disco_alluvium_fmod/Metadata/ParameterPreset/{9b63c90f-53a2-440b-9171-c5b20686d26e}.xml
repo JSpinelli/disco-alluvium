@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{9b63c90f-53a2-440b-9171-c5b20686d26e}">
+		<property name="name">
+			<value>Chord Progression Instrument</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6fe8cc31-bf3b-4cc7-a5dc-46ec95c0d963}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2740dfd8-c107-42e4-871f-f41be52fa664}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2740dfd8-c107-42e4-871f-f41be52fa664}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>

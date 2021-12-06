@@ -14,6 +14,9 @@ public class ColorVariants : MonoBehaviour
 
     public int myDefault;
 
+    [HideInInspector]
+    public int myCurrentIndex;
+
     public SpriteRenderer myRenderer;
 
     private void Awake()
@@ -24,10 +27,12 @@ public class ColorVariants : MonoBehaviour
     private void Start()
     {
         SwitchToDefault();
+        myCurrentIndex = myDefault;
     }
 
     public void SwitchTo(int index)
     {
+        myCurrentIndex = index;
         switch (index)
         {
             case 1:
