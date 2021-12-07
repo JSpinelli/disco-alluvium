@@ -229,7 +229,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 34819488}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -255,7 +255,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 34819488}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -281,7 +281,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 34819488}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -307,7 +307,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 34819488}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -333,7 +333,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 34819488}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -478,55 +478,18 @@ EdgeCollider2D:
   m_GameObject: {fileID: 60616695}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.9
   m_Points:
-  - {x: -40.560368, y: -19.95419}
-  - {x: -40.6334, y: -19.459679}
-  - {x: -40.90279, y: -19.09272}
-  - {x: -40.97237, y: -17.215647}
-  - {x: -41.01335, y: -14.525986}
-  - {x: -41.030903, y: -10.966693}
-  - {x: -41.024315, y: -6.707265}
-  - {x: -40.996, y: -2.1671839}
-  - {x: -40.94419, y: 2.7974734}
-  - {x: -40.871716, y: 7.7996426}
-  - {x: -40.781982, y: 12.581312}
-  - {x: -40.66797, y: 17.303509}
-  - {x: -40.541874, y: 21.38179}
-  - {x: -40.395176, y: 24.942356}
-  - {x: -40.231655, y: 27.709644}
-  - {x: -40.048897, y: 29.524744}
-  - {x: -39.953835, y: 29.840729}
-  - {x: -39.75918, y: 30.310997}
-  - {x: -39.46804, y: 30.360113}
-  - {x: 38.191227, y: 30.38316}
-  - {x: 39.05707, y: 30.383612}
-  - {x: 39.50885, y: 30.334126}
-  - {x: 39.65528, y: 30.0149}
-  - {x: 39.793945, y: 29.54263}
-  - {x: 39.965103, y: 27.716259}
-  - {x: 40.11118, y: 24.931324}
-  - {x: 40.235504, y: 21.347958}
-  - {x: 40.338486, y: 17.141983}
-  - {x: 40.42057, y: 12.476347}
-  - {x: 40.482178, y: 7.474041}
-  - {x: 40.52207, y: 2.471591}
-  - {x: 40.54147, y: -2.5310116}
-  - {x: 40.540833, y: -7.0336494}
-  - {x: 40.520348, y: -11.208555}
-  - {x: 40.479774, y: -14.790758}
-  - {x: 40.419388, y: -17.572876}
-  - {x: 40.338474, y: -19.386875}
-  - {x: 40.310417, y: -19.57006}
-  - {x: 40.15287, y: -20.191088}
-  - {x: 39.964424, y: -20.250881}
-  - {x: -39.560635, y: -19.957947}
-  - {x: -40.560368, y: -19.95419}
+  - {x: -62.91298, y: 32.352043}
+  - {x: 63.701027, y: 33.120926}
+  - {x: 64.01033, y: -39.959286}
+  - {x: -60.517624, y: -39.729164}
+  - {x: -60.69485, y: 37.424084}
   m_AdjacentStartPoint: {x: 0, y: 0}
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
@@ -2365,7 +2328,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 872667624}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2635,7 +2598,7 @@ MonoBehaviour:
   attracter: {fileID: 5845531460653150851, guid: e1e39c2aebee02b4f9c5be9e6854f354, type: 3}
   repeller: {fileID: 6593596396480381520, guid: 3d344feda03973d4193bc0d7c8524545, type: 3}
   colorChanger: {fileID: 4458081662951671987, guid: ae5c657079789f44d8ccbba901c3b331, type: 3}
-  nothing: {fileID: 5865943372697099485, guid: bc2612be764a13745b8a19c113275301, type: 3}
+  nothing: {fileID: 1305017040884853915, guid: 10108bed72dacb040aa05b1d851148a2, type: 3}
   spawnPoint: {fileID: 328695880}
 --- !u!4 &985385991
 Transform:

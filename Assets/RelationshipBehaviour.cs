@@ -290,11 +290,12 @@ public class RelationshipBehaviour : MonoBehaviour
         Vector2 mainDir = Vector2.zero;
         foreach (var obj in repellingObjects)
         {
-            Vector2 dir = (transform.position - obj.Value.position).normalized;
+            Vector2 dir = transform.position - obj.Value.position;
             float dist = Vector2.Distance(obj.Value.position, transform.position);
-            mainDir = mainDir + (dir*(1/dist));
+            mainDir = mainDir + (dir.normalized*(1/dist));
         }
         mainDir = mainDir / repellingObjects.Count;
+        
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
     }
 
@@ -306,18 +307,18 @@ public class RelationshipBehaviour : MonoBehaviour
             
             foreach (var obj in attractingObjects)
             {
-                Vector2 dir = (obj.Value.position - transform.position).normalized;
+                Vector2 dir = (obj.Value.position - transform.position);
                 float dist = Vector2.Distance(obj.Value.position, transform.position);
-                mainDir = mainDir + (dir*dist);
+                mainDir = mainDir + (dir.normalized*dist);
             }
 
             mainDir = mainDir / attractingObjects.Count;
         }
         if (followingPlayer)
         {
-            Vector2 dir = (GameManager.instance.player.transform.position - transform.position).normalized;
+            Vector2 dir = (GameManager.instance.player.transform.position - transform.position);
             float dist = Vector2.Distance(GameManager.instance.player.transform.position, transform.position);
-            mainDir = mainDir + (dir * (GameManager.instance.playerAttractionRate * dist));
+            mainDir = mainDir + (dir.normalized * (GameManager.instance.playerAttractionRate * dist));
         }
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
     }
