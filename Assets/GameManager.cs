@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public Camera cam;
+    public AnimationCurve zoomOutCurve;
+    public float zoomOutSensitivity;
 
     [HideInInspector]
     public GameObject player;
@@ -14,14 +18,19 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public bool attractingActive = false;
     [HideInInspector] public bool clickActive = false;
 
-    public int amountOfNothing;
+    public int amountOfNothing1;
+    public int amountOfNothing2;
+    public int amountOfNothing3;
     public int amountOfAttracter;
     public int amountOfRepellers;
     public int amountOfColorChangers;
     public int amountOfOrbiters;
     
     
-    public int amountOfNothingFollowing;
+    
+    public int amountOfNothing1Following;
+    public int amountOfNothing2Following;
+    public int amountOfNothing3Following;
     public int amountOfAttracterFollowing;
     public int amountOfRepellerFollowing;
     public int amountOfColorChangersFollowing;
@@ -32,6 +41,9 @@ public class GameManager : MonoBehaviour
     public int amountOfPink;
     public int amountOfPurple;
     public int amountOfGreen;
+
+    public int totalAmebas;
+    public int amebasFollowing;
 
     private void Awake()
     {
@@ -50,5 +62,12 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogWarning("There is no GameObject named Player on this scene");
         }
+    }
+
+    private void Update()
+    {
+        totalAmebas = amountOfAttracter + amountOfNothing1+amountOfNothing2+amountOfNothing3 + amountOfRepellers + amountOfColorChangers;
+        amebasFollowing = amountOfAttracterFollowing + amountOfNothing1Following + amountOfNothing2Following + amountOfNothing3Following+ amountOfRepellerFollowing + amountOfColorChangersFollowing;
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,zoomOutCurve.Evaluate(amebasFollowing), Time.deltaTime * zoomOutSensitivity);
     }
 }

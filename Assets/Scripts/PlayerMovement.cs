@@ -58,26 +58,26 @@ public class PlayerMovement : MonoBehaviour
 
         
 
-        if (Input.GetKeyDown(KeyCode.Space) && attractingCooldownTimer >= attractingCooldown)
-        {
-            GameManager.instance.attractingActive = true;
-            callSound.Play();
-            BloopIt();
-            collider.enabled = true;
-            attractingCooldownTimer = 0;
-            attractingTimer = 0;
-        }
-        
-        if (bloopItUp)
-        {
-            bloopGameObj.transform.localScale += scaleChange;
-
-            if (bloopGameObj.transform.localScale.x > 30)
-            {
-                bloopItUp = false;
-                Destroy(bloopGameObj);
-            }
-        }
+        // if (Input.GetKeyDown(KeyCode.Space) && attractingCooldownTimer >= attractingCooldown)
+        // {
+        //     GameManager.instance.attractingActive = true;
+        //     callSound.Play();
+        //     BloopIt();
+        //     collider.enabled = true;
+        //     attractingCooldownTimer = 0;
+        //     attractingTimer = 0;
+        // }
+        //
+        // if (bloopItUp)
+        // {
+        //     bloopGameObj.transform.localScale += scaleChange;
+        //
+        //     if (bloopGameObj.transform.localScale.x > 30)
+        //     {
+        //         bloopItUp = false;
+        //         Destroy(bloopGameObj);
+        //     }
+        // }
 
         _rigidbody2D.velocity = movement;
     }

@@ -214,7 +214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &34819489
 Transform:
   m_ObjectHideFlags: 0
@@ -740,7 +740,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 2f9c71e7858c95243877542d6cdc49e3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -761,7 +761,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.8
+  m_Time: 2
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -770,29 +770,29 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.20370293
-        inSlope: 0
-        outSlope: 0
+        value: 0.22603989
+        inSlope: -0.5262297
+        outSlope: -0.5262297
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
+        inWeight: 0
+        outWeight: 0.21889701
       - serializedVersion: 3
-        time: 1
+        time: 1.0083313
         value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.24793231
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0, g: 0.9999995, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -821,9 +821,9 @@ TrailRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
-    generateLightingData: 0
+    generateLightingData: 1
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
@@ -1194,16 +1194,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a12527c67ef7a1540b06efa5ccd552f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cam: {fileID: 519420031}
+  zoomOutCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 10.244385
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 9.582501
+      value: 39.062984
+      inSlope: 3.5172741
+      outSlope: 3.5172741
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 24.85946
+      value: 59.691734
+      inSlope: 0.17700104
+      outSlope: 0.17700104
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.280399
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  zoomOutSensitivity: 1
   player: {fileID: 0}
   playerAttractionRate: 1
   attractingActive: 0
   clickActive: 0
-  amountOfNothing: 0
+  amountOfNothing1: 0
+  amountOfNothing2: 0
+  amountOfNothing3: 0
   amountOfAttracter: 0
   amountOfRepellers: 0
   amountOfColorChangers: 0
   amountOfOrbiters: 0
-  amountOfNothingFollowing: 0
+  amountOfNothing1Following: 0
+  amountOfNothing2Following: 0
+  amountOfNothing3Following: 0
   amountOfAttracterFollowing: 0
   amountOfRepellerFollowing: 0
   amountOfColorChangersFollowing: 0
@@ -1213,6 +1252,8 @@ MonoBehaviour:
   amountOfPink: 0
   amountOfPurple: 0
   amountOfGreen: 0
+  totalAmebas: 0
+  amebasFollowing: 0
 --- !u!4 &311168920 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1305017040884853914, guid: 10108bed72dacb040aa05b1d851148a2, type: 3}
@@ -1742,7 +1783,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15
+  orthographic size: 17.2
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2515,6 +2556,7 @@ GameObject:
   - component: {fileID: 872667626}
   - component: {fileID: 872667631}
   - component: {fileID: 872667633}
+  - component: {fileID: 872667630}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -2534,7 +2576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfd158446af6e7498399a7f3865815d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 7
+  sensitivity: 12
   collider: {fileID: 557209941}
   attractingCooldown: 10
   attractingDuration: 8
@@ -2614,6 +2656,113 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!96 &872667630
+TrailRenderer:
+  serializedVersion: 2
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872667624}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 2f9c71e7858c95243877542d6cdc49e3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Time: 3
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0.013511658
+        value: 0.5447197
+        inSlope: -0.91236633
+        outSlope: -0.91236633
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0.24903971
+      - serializedVersion: 3
+        time: 1.0083313
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.24793231
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 0, g: 0.9999995, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 0}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 1
+    shadowBias: 0.5
+    generateLightingData: 1
+  m_MinVertexDistance: 0.01
+  m_Autodestruct: 0
+  m_Emitting: 1
 --- !u!114 &872667631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2683,7 +2832,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 4db7e72e4ce6d264daee298f30c0e4b9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2710,10 +2859,10 @@ MonoBehaviour:
   CollisionTag: 
   EventReference:
     Guid:
-      Data1: -226358988
-      Data2: 1225239403
-      Data3: -1823719291
-      Data4: -236447235
+      Data1: -908673577
+      Data2: 1193498696
+      Data3: 939870348
+      Data4: 1014979956
     Path: event:/Music
   Event: 
   PlayEvent: 1
@@ -4543,6 +4692,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e0c512fbdced4a4184540f7012187ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  percussion1: Percussion 1 Vol
+  percussion2: Percussion Vol 2
+  percussion3: Percussion Vol 3
+  melodyInstrument: Melody Instrument
+  minorChordInstrument: Minor Chord Instrument
+  majorChordInstrument: Major Chord Instrument
+  dominantChord: Dominant Chord
 --- !u!4 &1975220767
 Transform:
   m_ObjectHideFlags: 0

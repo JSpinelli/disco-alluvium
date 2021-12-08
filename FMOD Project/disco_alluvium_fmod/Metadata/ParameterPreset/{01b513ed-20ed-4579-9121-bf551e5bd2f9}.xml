@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{01b513ed-20ed-4579-9121-bf551e5bd2f9}">
+		<property name="name">
+			<value>Major Chord Instrument</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6fe8cc31-bf3b-4cc7-a5dc-46ec95c0d963}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{2634b87f-6050-4d54-a705-9125f891911d}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{2634b87f-6050-4d54-a705-9125f891911d}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

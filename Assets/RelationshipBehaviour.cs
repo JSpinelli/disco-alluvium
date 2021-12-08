@@ -37,6 +37,7 @@ public class RelationshipBehaviour : MonoBehaviour
     public Vector3 bigScale = new Vector3(1.2f,1.2f,1);
 
     public SpriteRenderer myRenderer;
+    private TrailRenderer myTrailRenderer;
     private Material myMat;
 
 
@@ -51,6 +52,7 @@ public class RelationshipBehaviour : MonoBehaviour
         repellingObjects = new Dictionary<int, Transform>();
         entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
         myColorIndex = Random.Range(1, 5);
+        myTrailRenderer = GetComponent<TrailRenderer>();
         switch (myTag)
         {
             case Types.Attract:
@@ -60,7 +62,24 @@ public class RelationshipBehaviour : MonoBehaviour
             }
             case Types.Nothing:
             {
-                GameManager.instance.amountOfNothing++;
+                switch (gameObject.name)
+                {
+                    case "Simple1":
+                    {
+                        GameManager.instance.amountOfNothing1++;
+                        break;
+                    }
+                    case "Simple2":
+                    {
+                        GameManager.instance.amountOfNothing2++;
+                        break;
+                    }
+                    case "Simple3":
+                    {
+                        GameManager.instance.amountOfNothing3++;
+                        break;
+                    }
+                }
                 break;
             }
             case Types.ColorChange:
@@ -81,12 +100,12 @@ public class RelationshipBehaviour : MonoBehaviour
         }
 
         myMat = myRenderer.material;
+        myTrailRenderer.enabled = false;
     }
     
         
     private void Update()
     {
-        //if (followingPlayer && !GameManager.instance.attractingActive) followingPlayer = false;
         Repel();
         Attract();
         if (inMouseArea)
@@ -97,11 +116,13 @@ public class RelationshipBehaviour : MonoBehaviour
                 followingPlayer = !followingPlayer;
                 if (followingPlayer)
                 {
+                    myTrailRenderer.enabled = true;
                     transform.parent.gameObject.layer = 7;
                     AddMeToTypeCount();
                 }
                 else
                 {
+                    myTrailRenderer.enabled = false;
                     RemoveMeFromTypeCount();
                     transform.parent.gameObject.layer = 8; 
                 }
@@ -185,7 +206,24 @@ public class RelationshipBehaviour : MonoBehaviour
             }
             case Types.Nothing:
             {
-                GameManager.instance.amountOfNothingFollowing++;
+                switch (gameObject.name)
+                {
+                    case "Simple1":
+                    {
+                        GameManager.instance.amountOfNothing1Following++;
+                        break;
+                    }
+                    case "Simple2":
+                    {
+                        GameManager.instance.amountOfNothing2Following++;
+                        break;
+                    }
+                    case "Simple3":
+                    {
+                        GameManager.instance.amountOfNothing3Following++;
+                        break;
+                    }
+                }
                 break;
             }
             case Types.ColorChange:
@@ -250,7 +288,24 @@ public class RelationshipBehaviour : MonoBehaviour
             }
             case Types.Nothing:
             {
-                GameManager.instance.amountOfNothingFollowing--;
+                switch (gameObject.name)
+                {
+                    case "Simple1":
+                    {
+                        GameManager.instance.amountOfNothing1Following--;
+                        break;
+                    }
+                    case "Simple2":
+                    {
+                        GameManager.instance.amountOfNothing2Following--;
+                        break;
+                    }
+                    case "Simple3":
+                    {
+                        GameManager.instance.amountOfNothing3Following--;
+                        break;
+                    }
+                }
                 break;
             }
             case Types.ColorChange:

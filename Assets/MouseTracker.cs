@@ -1,7 +1,4 @@
-using System;
-using UnityEditor.AssetImporters;
 using UnityEngine;
-using UnityEngine.Animations;
 
 public class MouseTracker : MonoBehaviour
 {

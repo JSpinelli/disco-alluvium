@@ -9,7 +9,13 @@ public class MusicManager : MonoBehaviour
 
     private StudioEventEmitter musicPlayer;
 
-    private ParamRef amountOfNothing;
+    [FMODUnity.ParamRef] public string percussion1;
+    [FMODUnity.ParamRef] public string percussion2;
+    [FMODUnity.ParamRef] public string percussion3;
+    [FMODUnity.ParamRef] public string melodyInstrument;
+    [FMODUnity.ParamRef] public string minorChordInstrument;
+    [FMODUnity.ParamRef] public string majorChordInstrument;
+    [FMODUnity.ParamRef] public string dominantChord;
 
     private void Awake()
     {
@@ -33,24 +39,67 @@ public class MusicManager : MonoBehaviour
             musicPlayer = player.GetComponents<StudioEventEmitter>()[1];
         }
     }
+
     void Update()
     {
-        if (GameManager.instance.amountOfNothingFollowing > 0)
-            musicPlayer.EventInstance.setParameterByName("BPM",
-                GameManager.instance.amountOfNothing / GameManager.instance.amountOfNothingFollowing);
+        if (GameManager.instance.amountOfNothing1 > 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(percussion1,
+                (float)GameManager.instance.amountOfNothing1Following /  GameManager.instance.amountOfNothing1);
+        }
         else
-            musicPlayer.EventInstance.setParameterByName("BPM", 0);
+        {
+            RuntimeManager.StudioSystem.setParameterByName(percussion1,0);
+        }
+        if (GameManager.instance.amountOfNothing2 > 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(percussion2,
+                (float) GameManager.instance.amountOfNothing2Following / GameManager.instance.amountOfNothing2);
+        }
+        else
+        {
+            RuntimeManager.StudioSystem.setParameterByName(percussion2,0);
+        }        
+        if (GameManager.instance.amountOfNothing3 > 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(percussion3,
+                (float) GameManager.instance.amountOfNothing3Following / GameManager.instance.amountOfNothing3);
+        }
+        else
+        {
+            RuntimeManager.StudioSystem.setParameterByName(percussion3,0);
+        }
 
-        if (GameManager.instance.amountOfAttracterFollowing > 0)
-            musicPlayer.EventInstance.setParameterByName("Melody Instrument",
-                GameManager.instance.amountOfAttracter / GameManager.instance.amountOfAttracterFollowing);
+        if (GameManager.instance.amountOfAttracter > 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(melodyInstrument,
+                (float) GameManager.instance.amountOfAttracterFollowing / GameManager.instance.amountOfAttracter); 
+        }
         else
-            musicPlayer.EventInstance.setParameterByName("Melody Instrument", 0);
+        {
+            RuntimeManager.StudioSystem.setParameterByName(melodyInstrument,0); 
+        }
 
-        if (GameManager.instance.amountOfRepellerFollowing > 0)
-            musicPlayer.EventInstance.setParameterByName("Chord Progression Instrument",
-                GameManager.instance.amountOfRepellers / GameManager.instance.amountOfRepellerFollowing);
+        if (GameManager.instance.amountOfRepellers > 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(minorChordInstrument,(float) GameManager.instance.amountOfRepellerFollowing / GameManager.instance.amountOfRepellers); 
+            RuntimeManager.StudioSystem.setParameterByName(majorChordInstrument,(float) GameManager.instance.amountOfRepellerFollowing / GameManager.instance.amountOfRepellers); 
+        }
         else
-            musicPlayer.EventInstance.setParameterByName("Chord Progression Instrument",0);
+        {
+            RuntimeManager.StudioSystem.setParameterByName(minorChordInstrument,0); 
+            RuntimeManager.StudioSystem.setParameterByName(majorChordInstrument,0); 
+        }
+        
+        if (GameManager.instance.totalAmebas > 0)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(dominantChord,(float)GameManager.instance.amebasFollowing / GameManager.instance.totalAmebas);
+        }
+        else
+        {
+            RuntimeManager.StudioSystem.setParameterByName(dominantChord,0);
+        }
+        
+        
     }
 }
