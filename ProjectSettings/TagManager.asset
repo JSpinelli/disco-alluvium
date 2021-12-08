@@ -17,10 +17,10 @@ TagManager:
   - Player
   - Water
   - UI
-  - Ameba Layer
-  - Entity Layer
+  - Ameba Interaction Layer
+  - Active Ameba Layer
   - Passive Ameba
-  - 
+  - MouseLayer
   - 
   - 
   - 

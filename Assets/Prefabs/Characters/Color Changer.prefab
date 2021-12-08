@@ -51,7 +51,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a6b2837df34e9164aac87d752b0b85d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   swapped: 0
   myColorIndex: 0
   bigScale: {x: 1.2, y: 1.2, z: 1}
+  myRenderer: {fileID: 1032291942378393602}
 --- !u!58 &7351987936829516885
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -316,6 +317,7 @@ GameObject:
   - component: {fileID: 8981899040877278656}
   - component: {fileID: 8981899040877278657}
   - component: {fileID: 8981899040877278662}
+  - component: {fileID: 9045135825000020382}
   m_Layer: 8
   m_Name: Color Changer
   m_TagString: Untagged
@@ -370,13 +372,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 8981899040877278663}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.3
 --- !u!114 &8981899040877278662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,3 +399,16 @@ MonoBehaviour:
   chargingAction: {fileID: 0}
   switchActions: []
   player: {fileID: 0}
+--- !u!114 &9045135825000020382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8981899040877278663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1566ff54a6dcf44d84c47aac8e38081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBehaviour: {fileID: 8981899040078511386}

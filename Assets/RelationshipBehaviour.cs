@@ -36,8 +36,16 @@ public class RelationshipBehaviour : MonoBehaviour
     private Vector3 targetScale;
     public Vector3 bigScale = new Vector3(1.2f,1.2f,1);
 
+    public SpriteRenderer myRenderer;
+    private Material myMat;
+
+
+    private float clickTimer = 0.2f;
+    private float timeToClick;
+
     private void Start()
     {
+        timeToClick = 0f;
         targetScale = bigScale;
         attractingObjects = new Dictionary<int, Transform>();
         repellingObjects = new Dictionary<int, Transform>();
@@ -71,6 +79,38 @@ public class RelationshipBehaviour : MonoBehaviour
                 break;
             }
         }
+
+        myMat = myRenderer.material;
+    }
+    
+        
+    private void Update()
+    {
+        //if (followingPlayer && !GameManager.instance.attractingActive) followingPlayer = false;
+        Repel();
+        Attract();
+        if (inMouseArea)
+        {
+            if (Input.GetMouseButton(0) && timeToClick > clickTimer)
+            {
+                timeToClick = 0;
+                followingPlayer = !followingPlayer;
+                if (followingPlayer)
+                {
+                    transform.parent.gameObject.layer = 7;
+                    AddMeToTypeCount();
+                }
+                else
+                {
+                    RemoveMeFromTypeCount();
+                    transform.parent.gameObject.layer = 8; 
+                }
+            }
+        }
+        if (timeToClick < clickTimer)
+        {
+            timeToClick += Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -96,7 +136,7 @@ public class RelationshipBehaviour : MonoBehaviour
             }
         }
 
-        if (thing.CompareTag("ColorChange") )//&& myTag != Types.ColorChange)
+        if (thing.CompareTag("ColorChange")&& (myTag != Types.ColorChange))
         {
             if (myColor != null)
             {
@@ -105,42 +145,33 @@ public class RelationshipBehaviour : MonoBehaviour
                 ChangeColorAmount();
             }
         }
-
-        if (thing.CompareTag("Player"))
+        
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        GameObject thing = other.gameObject;
+        if (thing.CompareTag("Repel"))
         {
-            if (GameManager.instance.clickActive)
-            {
-                followingPlayer = !followingPlayer;
-                if (followingPlayer)
-                    transform.parent.gameObject.layer = 7;
-                else
-                {
-                    transform.parent.gameObject.layer = 8; 
-                }
-                AddMeToTypeCount();
-                ChangeColorAmount();
-            }
-            else
-            {
-                inMouseArea = true;
-            }
+            repellingObjects.Remove(thing.GetInstanceID());
+        }
+        
+        if (thing.CompareTag("Attract"))
+        {
+            attractingObjects.Remove(thing.GetInstanceID());
         }
     }
 
-    public void Lerping()
+    public void InMouseArea()
     {
-        Vector3 currentScale = transform.localScale;
-        if (Vector3.Distance(currentScale,targetScale) > 0.01f)
-            currentScale = Vector3.Lerp(currentScale, targetScale, Time.deltaTime);
-        else
-        {
-            if (targetScale == bigScale)
-                targetScale = Vector3.one;
-            else
-                targetScale = bigScale;
-        }
+        inMouseArea = true;
+        myMat.SetFloat("_OutlineEnabled",1);
+    }
 
-        transform.localScale = currentScale;
+    public void OutOfMouseArea()
+    {
+        inMouseArea = false;
+        myMat.SetFloat("_OutlineEnabled",0);
     }
 
     public void AddMeToTypeCount()
@@ -238,50 +269,6 @@ public class RelationshipBehaviour : MonoBehaviour
                 break;
             }
         }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        GameObject thing = other.gameObject;
-        if (thing.CompareTag("Repel"))
-        {
-            repellingObjects.Remove(thing.GetInstanceID());
-        }
-        
-        if (thing.CompareTag("Attract"))
-        {
-            attractingObjects.Remove(thing.GetInstanceID());
-        }
-
-        if (thing.CompareTag("Player") && !followingPlayer)
-        {
-            transform.localScale = Vector3.one;
-            inMouseArea = false;
-        }
-
-    }
-
-    private void Update()
-    {
-        //if (followingPlayer && !GameManager.instance.attractingActive) followingPlayer = false;
-        Repel();
-        Attract();
-        if (inMouseArea)
-        {
-            Lerping();
-            if (GameManager.instance.clickActive)
-            {
-                followingPlayer = !followingPlayer;
-                if (followingPlayer)
-                    transform.parent.gameObject.layer = 7;
-                else
-                {
-                    transform.parent.gameObject.layer = 8; 
-                }
-            }
-        }
-
-        
     }
 
     private void Repel()
