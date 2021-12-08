@@ -106,29 +106,61 @@ public class RelationshipBehaviour : MonoBehaviour
             }
         }
 
-        if (thing.CompareTag("Player"))
+        // if (thing.CompareTag("Player"))
+        // {
+        //     if (GameManager.instance.clickActive)
+        //     {
+        //         followingPlayer = !followingPlayer;
+        //         if (followingPlayer)
+        //             transform.parent.gameObject.layer = 7;
+        //         else
+        //         {
+        //             transform.parent.gameObject.layer = 8; 
+        //         }
+        //         AddMeToTypeCount();
+        //         ChangeColorAmount();
+        //     }
+        //     else
+        //     {
+        //         inMouseArea = true;
+        //     }
+        // }
+    }
+    
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        GameObject thing = other.gameObject;
+        if (thing.CompareTag("Repel"))
         {
-            if (GameManager.instance.clickActive)
-            {
-                followingPlayer = !followingPlayer;
-                if (followingPlayer)
-                    transform.parent.gameObject.layer = 7;
-                else
-                {
-                    transform.parent.gameObject.layer = 8; 
-                }
-                AddMeToTypeCount();
-                ChangeColorAmount();
-            }
-            else
-            {
-                inMouseArea = true;
-            }
+            repellingObjects.Remove(thing.GetInstanceID());
         }
+        
+        if (thing.CompareTag("Attract"))
+        {
+            attractingObjects.Remove(thing.GetInstanceID());
+        }
+
+        // if (thing.CompareTag("Player") && !followingPlayer)
+        // {
+        //     transform.localScale = Vector3.one;
+        //     inMouseArea = false;
+        // }
+
+    }
+
+    public void StartLerp()
+    {
+        inMouseArea = true;
+    }
+
+    public void StopLerp()
+    {
+        inMouseArea = false;
     }
 
     public void Lerping()
     {
+        Debug.Log("Doing Something");
         Vector3 currentScale = transform.localScale;
         if (Vector3.Distance(currentScale,targetScale) > 0.01f)
             currentScale = Vector3.Lerp(currentScale, targetScale, Time.deltaTime);
@@ -240,26 +272,7 @@ public class RelationshipBehaviour : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        GameObject thing = other.gameObject;
-        if (thing.CompareTag("Repel"))
-        {
-            repellingObjects.Remove(thing.GetInstanceID());
-        }
-        
-        if (thing.CompareTag("Attract"))
-        {
-            attractingObjects.Remove(thing.GetInstanceID());
-        }
 
-        if (thing.CompareTag("Player") && !followingPlayer)
-        {
-            transform.localScale = Vector3.one;
-            inMouseArea = false;
-        }
-
-    }
 
     private void Update()
     {

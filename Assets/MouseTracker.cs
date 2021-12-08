@@ -1,3 +1,4 @@
+using System;
 using UnityEditor.AssetImporters;
 using UnityEngine;
 using UnityEngine.Animations;
@@ -26,5 +27,15 @@ public class MouseTracker : MonoBehaviour
         {
             GameManager.instance.clickActive = false;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        other.GetComponent<MouseTrackerHit>().myBehaviour.StartLerp();
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        other.GetComponent<MouseTrackerHit>().myBehaviour.StopLerp();
     }
 }
