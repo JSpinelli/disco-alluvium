@@ -18,7 +18,7 @@ public class AutoZoom : MonoBehaviour
     // Update is called once per frame
     void Update()
     {        
-        numFollowers = gm.amountOfAttracterFollowing + gm.amountOfColorChangersFollowing + gm.amountOfNothingFollowing + gm.amountOfOrbitersFollowing;
+        numFollowers = gm.amountOfAttracterFollowing + gm.amountOfColorChangersFollowing + gm.amountOfNothing1Following + gm.amountOfOrbitersFollowing;
 
         if(numFollowers <= 30)
         {

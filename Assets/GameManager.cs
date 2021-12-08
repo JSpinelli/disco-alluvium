@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -68,6 +65,6 @@ public class GameManager : MonoBehaviour
     {
         totalAmebas = amountOfAttracter + amountOfNothing1+amountOfNothing2+amountOfNothing3 + amountOfRepellers + amountOfColorChangers;
         amebasFollowing = amountOfAttracterFollowing + amountOfNothing1Following + amountOfNothing2Following + amountOfNothing3Following+ amountOfRepellerFollowing + amountOfColorChangersFollowing;
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,zoomOutCurve.Evaluate(amebasFollowing), Time.deltaTime * zoomOutSensitivity);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,zoomOutCurve.Evaluate(amebasFollowing)/2, Time.deltaTime * zoomOutSensitivity);
     }
 }

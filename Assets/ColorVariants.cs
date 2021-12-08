@@ -42,15 +42,11 @@ public class ColorVariants : MonoBehaviour
 
         if (switchColor)
         {
-            Debug.Log("switch color true");
-
             if (myRenderer.color == nextColor)
             {
-                Debug.Log("switch color false");
                 switchColor = false;
                 return;
             }
-
             myRenderer.color = Color.Lerp(myRenderer.color, nextColor, t);
         }
     }

@@ -1,42 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using FMODUnity;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
 {
-    public static MusicManager instance;
+    public static MusicManager Instance;
 
-    private StudioEventEmitter musicPlayer;
-
-    [FMODUnity.ParamRef] public string percussion1;
-    [FMODUnity.ParamRef] public string percussion2;
-    [FMODUnity.ParamRef] public string percussion3;
-    [FMODUnity.ParamRef] public string melodyInstrument;
-    [FMODUnity.ParamRef] public string minorChordInstrument;
-    [FMODUnity.ParamRef] public string majorChordInstrument;
-    [FMODUnity.ParamRef] public string dominantChord;
+    [ParamRef] public string percussion1;
+    [ParamRef] public string percussion2;
+    [ParamRef] public string percussion3;
+    [ParamRef] public string melodyInstrument;
+    [ParamRef] public string minorChordInstrument;
+    [ParamRef] public string majorChordInstrument;
+    [ParamRef] public string dominantChord;
 
     private void Awake()
     {
-        if (instance == null)
+        if (Instance == null)
         {
-            instance = this;
+            Instance = this;
         }
-        else if (instance != this)
+        else if (Instance != this)
         {
             Debug.Log("Should not be another class");
             Destroy(this);
-        }
-
-        GameObject player = GameObject.Find("Player");
-        if (!player)
-        {
-            Debug.LogWarning("There is no GameObject named Player on this scene");
-        }
-        else
-        {
-            musicPlayer = player.GetComponents<StudioEventEmitter>()[1];
         }
     }
 

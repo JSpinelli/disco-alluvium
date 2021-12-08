@@ -1434,8 +1434,8 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 9.582501
-      value: 39.062984
+      time: 15.01341
+      value: 39.4817
       inSlope: 3.5172741
       outSlope: 3.5172741
       tangentMode: 0
@@ -1443,8 +1443,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 24.85946
-      value: 59.691734
+      time: 30.000208
+      value: 69.95028
       inSlope: 0.17700104
       outSlope: 0.17700104
       tangentMode: 0
@@ -2687,6 +2687,7 @@ GameObject:
   - component: {fileID: 625744565}
   - component: {fileID: 625744567}
   - component: {fileID: 625744566}
+  - component: {fileID: 625744568}
   m_Layer: 0
   m_Name: Barrier (7)
   m_TagString: Untagged
@@ -2719,7 +2720,7 @@ BoxCollider2D:
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -2785,6 +2786,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!251 &625744568
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625744564}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1
 --- !u!1 &676499300
 GameObject:
   m_ObjectHideFlags: 0
