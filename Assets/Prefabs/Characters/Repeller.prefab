@@ -52,7 +52,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a6b2837df34e9164aac87d752b0b85d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -175,6 +175,7 @@ MonoBehaviour:
   swapped: 0
   myColorIndex: 0
   bigScale: {x: 1.2, y: 1.2, z: 1}
+  myRenderer: {fileID: 2109749881448571960}
 --- !u!58 &3485492444305303925
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -337,6 +338,7 @@ GameObject:
   - component: {fileID: 6593596396480381517}
   - component: {fileID: 6593596396480381522}
   - component: {fileID: 6593596396480381523}
+  - component: {fileID: 5454183421467283495}
   m_Layer: 8
   m_Name: Repeller
   m_TagString: Untagged
@@ -391,13 +393,13 @@ CircleCollider2D:
   m_GameObject: {fileID: 6593596396480381520}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 2.5
 --- !u!114 &6593596396480381523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,3 +420,16 @@ MonoBehaviour:
   chargingAction: {fileID: 0}
   switchActions: []
   player: {fileID: 0}
+--- !u!114 &5454183421467283495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593596396480381520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1566ff54a6dcf44d84c47aac8e38081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myBehaviour: {fileID: 6593596394547129876}

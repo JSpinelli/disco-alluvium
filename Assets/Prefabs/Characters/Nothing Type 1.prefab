@@ -64,7 +64,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1305017040884853915}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 8851220732f483249ba4655ec32b5c27, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1566ff54a6dcf44d84c47aac8e38081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myBehaviour: {fileID: 0}
+  myBehaviour: {fileID: 2185777332633555414}
 --- !u!1 &2185777332633555408
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +138,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a6b2837df34e9164aac87d752b0b85d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,6 +208,7 @@ MonoBehaviour:
   swapped: 0
   myColorIndex: 0
   bigScale: {x: 1.2, y: 1.2, z: 1.2}
+  myRenderer: {fileID: 2185777332633555411}
 --- !u!58 &2185777332633555415
 CircleCollider2D:
   m_ObjectHideFlags: 0
