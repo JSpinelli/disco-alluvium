@@ -1,39 +1,36 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class Spawner : MonoBehaviour
 {
-
+    private float _timeToSpawn;
+    private int _currentSpawn;
+    
     public float spawnTimer;
     public bool spawningEnabled = false;
     public GameObject attracter;
     public GameObject repeller;
     public GameObject colorChanger;
     public GameObject[] nothing;
-    private float timeToSpawn;
-
-    private int currentSpawn;
     public Transform spawnPoint;
+
 
     private void Start()
     {
-        currentSpawn = 0;
+        _currentSpawn = 0;
+        _timeToSpawn = 0;
     }
 
     void Update()
     {
         if (spawningEnabled)
         {
-            if (timeToSpawn < spawnTimer)
+            if (_timeToSpawn < spawnTimer)
             {
-                timeToSpawn += Time.deltaTime;
+                _timeToSpawn += Time.deltaTime;
             }
             else
             {
-                timeToSpawn = 0;
+                _timeToSpawn = 0;
                 Spawn();
             }   
         }
@@ -41,7 +38,7 @@ public class Spawner : MonoBehaviour
 
     private void Spawn()
     {
-        switch (currentSpawn)
+        switch (_currentSpawn)
         {
             case 0:
             {
@@ -75,10 +72,10 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        currentSpawn++;
-        if (currentSpawn >= 6)
+        _currentSpawn++;
+        if (_currentSpawn >= 6)
         {
-            currentSpawn = 0;
+            _currentSpawn = 0;
         }
     }
 }
