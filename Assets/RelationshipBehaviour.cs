@@ -32,8 +32,13 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private Rigidbody2D entityRigidbody2D;
 
+    private bool inMouseArea = false;
+    private Vector3 targetScale;
+    public Vector3 bigScale = new Vector3(1.2f,1.2f,1);
+
     private void Start()
     {
+        targetScale = bigScale;
         attractingObjects = new Dictionary<int, Transform>();
         repellingObjects = new Dictionary<int, Transform>();
         entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
@@ -101,13 +106,41 @@ public class RelationshipBehaviour : MonoBehaviour
             }
         }
 
-        if (thing.CompareTag("Player") && !followingPlayer)
+        if (thing.CompareTag("Player"))
         {
-            Debug.Log("Triggered");
-            followingPlayer = true;
-            AddMeToTypeCount();
-            ChangeColorAmount();
+            if (GameManager.instance.clickActive)
+            {
+                followingPlayer = !followingPlayer;
+                if (followingPlayer)
+                    transform.parent.gameObject.layer = 7;
+                else
+                {
+                    transform.parent.gameObject.layer = 8; 
+                }
+                AddMeToTypeCount();
+                ChangeColorAmount();
+            }
+            else
+            {
+                inMouseArea = true;
+            }
         }
+    }
+
+    public void Lerping()
+    {
+        Vector3 currentScale = transform.localScale;
+        if (Vector3.Distance(currentScale,targetScale) > 0.01f)
+            currentScale = Vector3.Lerp(currentScale, targetScale, Time.deltaTime);
+        else
+        {
+            if (targetScale == bigScale)
+                targetScale = Vector3.one;
+            else
+                targetScale = bigScale;
+        }
+
+        transform.localScale = currentScale;
     }
 
     public void AddMeToTypeCount()
@@ -220,9 +253,10 @@ public class RelationshipBehaviour : MonoBehaviour
             attractingObjects.Remove(thing.GetInstanceID());
         }
 
-        if (thing.CompareTag("Player"))
+        if (thing.CompareTag("Player") && !followingPlayer)
         {
-            attractingObjects.Remove(thing.GetInstanceID());
+            transform.localScale = Vector3.one;
+            inMouseArea = false;
         }
 
     }
@@ -232,6 +266,22 @@ public class RelationshipBehaviour : MonoBehaviour
         //if (followingPlayer && !GameManager.instance.attractingActive) followingPlayer = false;
         Repel();
         Attract();
+        if (inMouseArea)
+        {
+            Lerping();
+            if (GameManager.instance.clickActive)
+            {
+                followingPlayer = !followingPlayer;
+                if (followingPlayer)
+                    transform.parent.gameObject.layer = 7;
+                else
+                {
+                    transform.parent.gameObject.layer = 8; 
+                }
+            }
+        }
+
+        
     }
 
     private void Repel()
@@ -240,14 +290,13 @@ public class RelationshipBehaviour : MonoBehaviour
         Vector2 mainDir = Vector2.zero;
         foreach (var obj in repellingObjects)
         {
-            Vector2 dir = (transform.position - obj.Value.position).normalized;
+            Vector2 dir = transform.position - obj.Value.position;
             float dist = Vector2.Distance(obj.Value.position, transform.position);
-            mainDir = mainDir + (dir*(1/dist));
+            mainDir = mainDir + (dir.normalized*(1/dist));
         }
         mainDir = mainDir / repellingObjects.Count;
-        entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);    
-        // transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
-        //     Time.deltaTime);
+        
+        entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
     }
 
     private void Attract()
@@ -258,21 +307,19 @@ public class RelationshipBehaviour : MonoBehaviour
             
             foreach (var obj in attractingObjects)
             {
-                Vector2 dir = (obj.Value.position - transform.position).normalized;
+                Vector2 dir = (obj.Value.position - transform.position);
                 float dist = Vector2.Distance(obj.Value.position, transform.position);
-                mainDir = mainDir + (dir*dist);
+                mainDir = mainDir + (dir.normalized*dist);
             }
 
             mainDir = mainDir / attractingObjects.Count;
         }
         if (followingPlayer)
         {
-            Vector2 dir = (GameManager.instance.player.transform.position - transform.position).normalized;
+            Vector2 dir = (GameManager.instance.player.transform.position - transform.position);
             float dist = Vector2.Distance(GameManager.instance.player.transform.position, transform.position);
-            mainDir = mainDir + (dir * (GameManager.instance.playerAttractionRate * dist));
+            mainDir = mainDir + (dir.normalized * (GameManager.instance.playerAttractionRate * dist));
         }
         entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
-        // transform.parent.position = Vector3.Lerp(transform.parent.position, transform.parent.position + (mainDir * movementSpeed),
-        //     Time.deltaTime);
     }
 }

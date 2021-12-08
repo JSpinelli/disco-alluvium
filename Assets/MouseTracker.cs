@@ -9,6 +9,7 @@ public class MouseTracker : MonoBehaviour
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Confined;
+        collider.enabled = true;
     }
 
     private void Update()
@@ -18,12 +19,12 @@ public class MouseTracker : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            collider.enabled = true;
+            GameManager.instance.clickActive = true;
         }
         
         if (Input.GetMouseButtonUp(0))
         {
-            collider.enabled = false;
+            GameManager.instance.clickActive = false;
         }
     }
 }

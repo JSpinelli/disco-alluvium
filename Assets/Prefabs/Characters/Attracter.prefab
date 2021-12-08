@@ -118,6 +118,7 @@ MonoBehaviour:
   myColor: {fileID: 6590153016811237602}
   swapped: 0
   myColorIndex: 0
+  bigScale: {x: 1.2, y: 1.2, z: 0}
 --- !u!58 &5248894767625175331
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -213,7 +214,7 @@ GameObject:
   - component: {fileID: 5845531460653150854}
   - component: {fileID: 5845531460653150853}
   - component: {fileID: 5845531460653150852}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Attracter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,19 +246,19 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5845531460653150851}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 4
 --- !u!58 &5845531460653150853
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -415,4 +416,5 @@ MonoBehaviour:
   blueShade: {r: 0, g: 0.18190622, b: 1, a: 1}
   pinkShade: {r: 1, g: 0, b: 0.63933516, a: 1}
   myDefault: 1
+  myCurrentIndex: 0
   myRenderer: {fileID: 7887121481189794123}
