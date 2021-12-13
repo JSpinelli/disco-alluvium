@@ -12,16 +12,25 @@ public class CollisionDetection : MonoBehaviour
     public RelationshipBehaviour myBehaviour;
     public StudioEventEmitter collisionSound;
 
+    private Rigidbody2D _myRigidbody2D;
+
     private void Start()
     {
         timeToSpawnNext = Spawner.Instance.spawnTimer;
+        _myRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        if (other.gameObject.CompareTag("Player")) return;
+        if (other.gameObject.CompareTag("Wall") && !myBehaviour.followingPlayer)
+        {
+            Vector3 dir = transform.position - other.gameObject.transform.position;
+            _myRigidbody2D.AddForce(dir.normalized * 10, ForceMode2D.Impulse);
+            return;
+        }
         if (!myBehaviour.followingPlayer)
             collisionSound.Play();
-        if (other.gameObject.CompareTag("Player")) return;
         if (!other.gameObject.CompareTag(gameObject.tag) && _readyToSpawn)
         {
             if (Random.Range(0f, 1f) < Spawner.Instance.spawnChance)

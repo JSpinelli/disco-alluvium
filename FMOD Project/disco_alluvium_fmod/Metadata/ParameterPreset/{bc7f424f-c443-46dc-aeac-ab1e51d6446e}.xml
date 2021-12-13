@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{bc7f424f-c443-46dc-aeac-ab1e51d6446e}">
+		<property name="name">
+			<value>PercussionVolume</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6fe8cc31-bf3b-4cc7-a5dc-46ec95c0d963}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{cc0206f9-b62e-4e1c-839b-804cc1375cf9}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{cc0206f9-b62e-4e1c-839b-804cc1375cf9}">
+		<property name="maximum">
+			<value>20</value>
+		</property>
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

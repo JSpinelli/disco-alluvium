@@ -91,7 +91,7 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        globalSpawnTime = globalSpawnTime + 10;
+        globalSpawnTime = globalSpawnTime + 2;
         _currentSpawn++;
         if (_currentSpawn >= 6)
         {

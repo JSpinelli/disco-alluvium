@@ -10,6 +10,7 @@ TagManager:
   - Orbit
   - Nothing
   - Blooper
+  - Wall
   layers:
   - Default
   - TransparentFX

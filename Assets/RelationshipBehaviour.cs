@@ -121,6 +121,16 @@ public class RelationshipBehaviour : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && followingPlayer)
+        {
+            followingPlayer = false;
+            _myMat.SetColor("_SolidOutline",notFollowingColorOutline);
+            _myTrailRenderer.enabled = false;
+            RemoveMeFromTypeCount();
+            transform.parent.gameObject.layer = 8; 
+        }
+
         if (_timeToClick < clickTimer)
         {
             _timeToClick += Time.deltaTime;
@@ -317,7 +327,7 @@ public class RelationshipBehaviour : MonoBehaviour
         {
             Vector2 dir = transform.position - obj.Value.position;
             float dist = Vector2.Distance(obj.Value.position, transform.position);
-            mainDir += dir.normalized * (10 * (1/dist));
+            mainDir += dir.normalized * (69* (1/dist));
         }
         mainDir = mainDir / _repellingObjects.Count;
         
