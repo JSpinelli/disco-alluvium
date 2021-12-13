@@ -1,6 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using FMODUnity;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -13,46 +12,36 @@ public class RelationshipBehaviour : MonoBehaviour
         Orbit,
         Nothing
     }
-    private Dictionary<int, Transform> attractingObjects;
-    private Dictionary<int, Transform> repellingObjects;
-
-    private bool followingPlayer;
-    
-    public float movementSpeed = 0.01f;
-    public Types myTag;
-
-    public EntityBehaviour myBehaviour;
-    public ColorVariants myColor;
-
-    [HideInInspector]
-    public bool swapped = false;
-
     [HideInInspector]
     public int myColorIndex;
 
-    private Rigidbody2D entityRigidbody2D;
-
-    private bool inMouseArea = false;
-    private Vector3 targetScale;
-    public Vector3 bigScale = new Vector3(1.2f,1.2f,1);
-
     public SpriteRenderer myRenderer;
-    private TrailRenderer myTrailRenderer;
-    private Material myMat;
-
+    public Color notFollowingColorOutline = Color.white;
+    public Color followingColorOutline = Color.blue;
+    public ColorVariants myColor;
+    public float movementSpeed = 0.01f;
+    public Types myTag;
+    public StudioEventEmitter clickAdd;
+    public StudioEventEmitter clickRemove;
 
     private float clickTimer = 0.2f;
-    private float timeToClick;
+    private float _timeToClick;
+    private TrailRenderer _myTrailRenderer;
+    private Material _myMat;
+    private bool _inMouseArea;
+    private Rigidbody2D _entityRigidbody2D;
+    private bool _followingPlayer;
+    private Dictionary<int, Transform> _attractingObjects;
+    private Dictionary<int, Transform> _repellingObjects;
 
     private void Start()
     {
-        timeToClick = 0f;
-        targetScale = bigScale;
-        attractingObjects = new Dictionary<int, Transform>();
-        repellingObjects = new Dictionary<int, Transform>();
-        entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
+        _timeToClick = 0f;
+        _attractingObjects = new Dictionary<int, Transform>();
+        _repellingObjects = new Dictionary<int, Transform>();
+        _entityRigidbody2D = transform.parent.GetComponent<Rigidbody2D>();
         myColorIndex = Random.Range(1, 5);
-        myTrailRenderer = GetComponent<TrailRenderer>();
+        _myTrailRenderer = GetComponent<TrailRenderer>();
         switch (myTag)
         {
             case Types.Attract:
@@ -99,8 +88,8 @@ public class RelationshipBehaviour : MonoBehaviour
             }
         }
 
-        myMat = myRenderer.material;
-        myTrailRenderer.enabled = false;
+        _myMat = myRenderer.material;
+        _myTrailRenderer.enabled = false;
     }
     
         
@@ -108,29 +97,33 @@ public class RelationshipBehaviour : MonoBehaviour
     {
         Repel();
         Attract();
-        if (inMouseArea)
+        if (_inMouseArea)
         {
-            if (Input.GetMouseButton(0) && timeToClick > clickTimer)
+            if (Input.GetMouseButton(0) && _timeToClick > clickTimer)
             {
-                timeToClick = 0;
-                followingPlayer = !followingPlayer;
-                if (followingPlayer)
+                _timeToClick = 0;
+                _followingPlayer = !_followingPlayer;
+                if (_followingPlayer)
                 {
-                    myTrailRenderer.enabled = true;
+                    clickAdd.Play();
+                    _myMat.SetColor("_SolidOutline",followingColorOutline);
+                    _myTrailRenderer.enabled = true;
                     transform.parent.gameObject.layer = 7;
                     AddMeToTypeCount();
                 }
                 else
                 {
-                    myTrailRenderer.enabled = false;
+                    clickRemove.Play();
+                    _myMat.SetColor("_SolidOutline",notFollowingColorOutline);
+                    _myTrailRenderer.enabled = false;
                     RemoveMeFromTypeCount();
                     transform.parent.gameObject.layer = 8; 
                 }
             }
         }
-        if (timeToClick < clickTimer)
+        if (_timeToClick < clickTimer)
         {
-            timeToClick += Time.deltaTime;
+            _timeToClick += Time.deltaTime;
         }
     }
 
@@ -139,24 +132,14 @@ public class RelationshipBehaviour : MonoBehaviour
         GameObject thing = other.gameObject;
         if (thing.CompareTag("Repel") && myTag != Types.Repel)
         {
-            repellingObjects.Add(other.gameObject.GetInstanceID(),thing.transform);
+            _repellingObjects.Add(other.gameObject.GetInstanceID(),thing.transform);
         }
 
         if (thing.CompareTag("Attract") && myTag != Types.Attract)
         {
-            attractingObjects.Add(thing.GetInstanceID(),thing.transform);
+            _attractingObjects.Add(thing.GetInstanceID(),thing.transform);
         }
-
-        if (thing.CompareTag("Orbit") && myTag != Types.Orbit && !swapped)
-        {
-            swapped = true;
-            if (myBehaviour)
-            {
-                myBehaviour.player = thing;
-                myBehaviour.Switch();   
-            }
-        }
-
+        
         if (thing.CompareTag("ColorChange")&& (myTag != Types.ColorChange))
         {
             if (myColor != null)
@@ -174,28 +157,28 @@ public class RelationshipBehaviour : MonoBehaviour
         GameObject thing = other.gameObject;
         if (thing.CompareTag("Repel"))
         {
-            repellingObjects.Remove(thing.GetInstanceID());
+            _repellingObjects.Remove(thing.GetInstanceID());
         }
         
         if (thing.CompareTag("Attract"))
         {
-            attractingObjects.Remove(thing.GetInstanceID());
+            _attractingObjects.Remove(thing.GetInstanceID());
         }
     }
 
     public void InMouseArea()
     {
-        inMouseArea = true;
-        myMat.SetFloat("_OutlineEnabled",1);
+        _inMouseArea = true;
+        _myMat.SetFloat("_OutlineEnabled",1);
     }
 
     public void OutOfMouseArea()
     {
-        inMouseArea = false;
-        myMat.SetFloat("_OutlineEnabled",0);
+        _inMouseArea = false;
+        _myMat.SetFloat("_OutlineEnabled",0);
     }
 
-    public void AddMeToTypeCount()
+    private void AddMeToTypeCount()
     {
         switch (myTag)
         {
@@ -244,7 +227,7 @@ public class RelationshipBehaviour : MonoBehaviour
         }
     }
 
-    public void ChangeColorAmount()
+    private void ChangeColorAmount()
     {
         if (myColor == null) return;
         switch (myColor.myCurrentIndex)
@@ -277,7 +260,7 @@ public class RelationshipBehaviour : MonoBehaviour
         }
     }
 
-    public void RemoveMeFromTypeCount()
+    private void RemoveMeFromTypeCount()
     {
         switch (myTag)
         {
@@ -328,40 +311,40 @@ public class RelationshipBehaviour : MonoBehaviour
 
     private void Repel()
     {
-        if (repellingObjects.Count == 0) return; 
+        if (_repellingObjects.Count == 0) return; 
         Vector2 mainDir = Vector2.zero;
-        foreach (var obj in repellingObjects)
+        foreach (var obj in _repellingObjects)
         {
             Vector2 dir = transform.position - obj.Value.position;
             float dist = Vector2.Distance(obj.Value.position, transform.position);
-            mainDir = mainDir + (dir.normalized*(1/dist));
+            mainDir += dir.normalized * (10 * (1/dist));
         }
-        mainDir = mainDir / repellingObjects.Count;
+        mainDir = mainDir / _repellingObjects.Count;
         
-        entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
+        _entityRigidbody2D.velocity += (mainDir * movementSpeed);
     }
 
     private void Attract()
     {
         Vector2 mainDir = Vector2.zero;
-        if (attractingObjects.Count != 0)
+        if (_attractingObjects.Count != 0)
         {
             
-            foreach (var obj in attractingObjects)
+            foreach (var obj in _attractingObjects)
             {
                 Vector2 dir = (obj.Value.position - transform.position);
                 float dist = Vector2.Distance(obj.Value.position, transform.position);
-                mainDir = mainDir + (dir.normalized*dist);
+                mainDir += (dir.normalized*dist);
             }
 
-            mainDir = mainDir / attractingObjects.Count;
+            mainDir = mainDir / _attractingObjects.Count;
         }
-        if (followingPlayer)
+        if (_followingPlayer)
         {
             Vector2 dir = (GameManager.instance.player.transform.position - transform.position);
             float dist = Vector2.Distance(GameManager.instance.player.transform.position, transform.position);
             mainDir = mainDir + (dir.normalized * (GameManager.instance.playerAttractionRate * dist));
         }
-        entityRigidbody2D.velocity = entityRigidbody2D.velocity + (mainDir * movementSpeed);
+        _entityRigidbody2D.velocity += (mainDir * movementSpeed);
     }
 }

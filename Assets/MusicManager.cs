@@ -8,9 +8,9 @@ public class MusicManager : MonoBehaviour
     [ParamRef] public string percussion1;
     [ParamRef] public string percussion2;
     [ParamRef] public string percussion3;
-    [ParamRef] public string melodyInstrument;
-    [ParamRef] public string minorChordInstrument;
-    [ParamRef] public string majorChordInstrument;
+    [ParamRef] public string attracterInstrument;
+    [ParamRef] public string repellerInstrument;
+    [ParamRef] public string colorChangerInstrument;
     [ParamRef] public string dominantChord;
 
     private void Awake()
@@ -28,64 +28,45 @@ public class MusicManager : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.amountOfNothing1 > 0)
-        {
-            RuntimeManager.StudioSystem.setParameterByName(percussion1,
-                (float)GameManager.instance.amountOfNothing1Following /  GameManager.instance.amountOfNothing1);
-        }
-        else
-        {
-            RuntimeManager.StudioSystem.setParameterByName(percussion1,0);
-        }
-        if (GameManager.instance.amountOfNothing2 > 0)
-        {
-            RuntimeManager.StudioSystem.setParameterByName(percussion2,
-                (float) GameManager.instance.amountOfNothing2Following / GameManager.instance.amountOfNothing2);
-        }
-        else
-        {
-            RuntimeManager.StudioSystem.setParameterByName(percussion2,0);
-        }        
-        if (GameManager.instance.amountOfNothing3 > 0)
-        {
-            RuntimeManager.StudioSystem.setParameterByName(percussion3,
-                (float) GameManager.instance.amountOfNothing3Following / GameManager.instance.amountOfNothing3);
-        }
-        else
-        {
-            RuntimeManager.StudioSystem.setParameterByName(percussion3,0);
-        }
+        if (GameManager.instance.amebasFollowing == 0) return;
 
-        if (GameManager.instance.amountOfAttracter > 0)
-        {
-            RuntimeManager.StudioSystem.setParameterByName(melodyInstrument,
-                (float) GameManager.instance.amountOfAttracterFollowing / GameManager.instance.amountOfAttracter); 
-        }
-        else
-        {
-            RuntimeManager.StudioSystem.setParameterByName(melodyInstrument,0); 
-        }
+        int percussionFollowing = GameManager.instance.amountOfNothing1Following +
+                                  GameManager.instance.amountOfNothing2Following +
+                                  GameManager.instance.amountOfNothing3Following;
+        int melodyFollowing = GameManager.instance.amountOfAttracterFollowing +
+                             GameManager.instance.amountOfRepellerFollowing +
+                             GameManager.instance.amountOfColorChangersFollowing;
 
-        if (GameManager.instance.amountOfRepellers > 0)
-        {
-            RuntimeManager.StudioSystem.setParameterByName(minorChordInstrument,(float) GameManager.instance.amountOfRepellerFollowing / GameManager.instance.amountOfRepellers); 
-            RuntimeManager.StudioSystem.setParameterByName(majorChordInstrument,(float) GameManager.instance.amountOfRepellerFollowing / GameManager.instance.amountOfRepellers); 
-        }
-        else
-        {
-            RuntimeManager.StudioSystem.setParameterByName(minorChordInstrument,0); 
-            RuntimeManager.StudioSystem.setParameterByName(majorChordInstrument,0); 
-        }
-        
+        RuntimeManager.StudioSystem.setParameterByName(percussion1,
+            (float) GameManager.instance.amountOfNothing1Following / percussionFollowing);
+
+
+        RuntimeManager.StudioSystem.setParameterByName(percussion2,
+            (float) GameManager.instance.amountOfNothing2Following / percussionFollowing);
+
+        RuntimeManager.StudioSystem.setParameterByName(percussion3,
+            (float) GameManager.instance.amountOfNothing3Following / percussionFollowing);
+
+
+        RuntimeManager.StudioSystem.setParameterByName(attracterInstrument,
+            (float) GameManager.instance.amountOfAttracterFollowing / melodyFollowing);
+
+
+        RuntimeManager.StudioSystem.setParameterByName(repellerInstrument,
+            (float) GameManager.instance.amountOfRepellerFollowing / melodyFollowing);
+
+
+        RuntimeManager.StudioSystem.setParameterByName(colorChangerInstrument,
+            (float) GameManager.instance.amountOfColorChangersFollowing / melodyFollowing);
+
         if (GameManager.instance.totalAmebas > 0)
         {
-            RuntimeManager.StudioSystem.setParameterByName(dominantChord,(float)GameManager.instance.amebasFollowing / GameManager.instance.totalAmebas);
+            RuntimeManager.StudioSystem.setParameterByName(dominantChord,
+                (float) GameManager.instance.amebasFollowing / GameManager.instance.totalAmebas);
         }
         else
         {
-            RuntimeManager.StudioSystem.setParameterByName(dominantChord,0);
+            RuntimeManager.StudioSystem.setParameterByName(dominantChord, 0);
         }
-        
-        
     }
 }

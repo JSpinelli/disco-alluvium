@@ -5,7 +5,7 @@
 			<value>RadarPing</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{c9c65faf-27f9-49c8-89c4-1e7e7096c5c5}</destination>
@@ -90,11 +90,7 @@
 			<destination>{b03dcc4d-03c1-4ace-9430-1fd0402daa09}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{8ad50cfa-deef-411a-b87b-c54a711677e2}">
-		<relationship name="sounds">
-			<destination>{01b31001-d024-49cf-8db0-0e310921c7b3}</destination>
-		</relationship>
-	</object>
+	<object class="MultiSound" id="{8ad50cfa-deef-411a-b87b-c54a711677e2}" />
 	<object class="MixerBusEffectChain" id="{cc0e3e55-bf02-4e45-a7c2-71ae6e1b205f}">
 		<relationship name="effects">
 			<destination>{18de2984-77ec-4350-bbcf-4d3776a15906}</destination>
@@ -121,11 +117,6 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{67eaea36-62ac-4b85-b0a6-24adae81e637}" />
-	<object class="SingleSound" id="{01b31001-d024-49cf-8db0-0e310921c7b3}">
-		<relationship name="audioFile">
-			<destination>{db7e64ef-33ae-417d-a90d-8b5c4cb06785}</destination>
-		</relationship>
-	</object>
 	<object class="MixerBusFader" id="{18de2984-77ec-4350-bbcf-4d3776a15906}" />
 	<object class="MixerBusEffectChain" id="{cd70367a-1036-49e5-955b-b7c0e54e2416}">
 		<relationship name="effects">

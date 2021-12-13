@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
+
+    public static Spawner Instance;
+    
     private float _timeToSpawn;
     private int _currentSpawn;
     
@@ -13,6 +16,21 @@ public class Spawner : MonoBehaviour
     public GameObject[] nothing;
     public Transform spawnPoint;
 
+    public float globalSpawnTime = 5;
+    public float spawnChance = 0.5f;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Debug.Log("Should not be another class");
+            Destroy(this);
+        }
+    }
 
     private void Start()
     {
@@ -36,6 +54,50 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    public void Spawn(Vector3 spawnPos)
+    {
+        if (GameManager.instance.totalAmebas > GameManager.instance.amebaLimit) return;
+        switch (_currentSpawn)
+        {
+            case 0:
+            {
+                Instantiate(nothing[Random.Range(0,3)], spawnPos,Quaternion.identity);
+                break;
+            }
+            case 1:
+            {
+                Instantiate(attracter, spawnPos,Quaternion.identity);
+                break;
+            }
+            case 2:
+            {
+                Instantiate(nothing[Random.Range(0,2)], spawnPos,Quaternion.identity);
+                break;
+            }
+            case 3:
+            {
+                Instantiate(colorChanger, spawnPos,Quaternion.identity);
+                break;
+            }
+            case 4:
+            {
+                Instantiate(nothing[Random.Range(0,2)], spawnPos,Quaternion.identity);
+                break;
+            }           
+            case 5:
+            {
+                Instantiate(repeller, spawnPos,Quaternion.identity);
+                break;
+            }
+        }
+
+        globalSpawnTime = globalSpawnTime + 10;
+        _currentSpawn++;
+        if (_currentSpawn >= 6)
+        {
+            _currentSpawn = 0;
+        }
+    }
     private void Spawn()
     {
         switch (_currentSpawn)

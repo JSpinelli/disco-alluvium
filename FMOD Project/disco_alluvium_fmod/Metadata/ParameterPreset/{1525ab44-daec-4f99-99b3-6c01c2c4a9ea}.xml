@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{1525ab44-daec-4f99-99b3-6c01c2c4a9ea}">
+		<property name="name">
+			<value>Color Changer Instrument</value>
+		</property>
+		<relationship name="folder">
+			<destination>{6fe8cc31-bf3b-4cc7-a5dc-46ec95c0d963}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{3845784d-fc6e-4ee4-b9aa-6b970793c8ab}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{3845784d-fc6e-4ee4-b9aa-6b970793c8ab}">
+		<property name="isGlobal">
+			<value>true</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="isExposedRecursively">
+			<value>false</value>
+		</property>
+	</object>
+</objects>

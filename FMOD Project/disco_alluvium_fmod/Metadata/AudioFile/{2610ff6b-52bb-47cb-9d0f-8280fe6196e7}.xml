@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{2610ff6b-52bb-47cb-9d0f-8280fe6196e7}">
+		<property name="assetPath">
+			<value>Repeller_Add.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.59999999999999998</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{4535abf4-0576-4115-9003-1afc45e3ddfe}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     public int totalAmebas;
     public int amebasFollowing;
+    public int amebaLimit = 50;
 
     private void Awake()
     {
@@ -65,6 +66,6 @@ public class GameManager : MonoBehaviour
     {
         totalAmebas = amountOfAttracter + amountOfNothing1+amountOfNothing2+amountOfNothing3 + amountOfRepellers + amountOfColorChangers;
         amebasFollowing = amountOfAttracterFollowing + amountOfNothing1Following + amountOfNothing2Following + amountOfNothing3Following+ amountOfRepellerFollowing + amountOfColorChangersFollowing;
-        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,zoomOutCurve.Evaluate(amebasFollowing)/2, Time.deltaTime * zoomOutSensitivity);
+        cam.orthographicSize = Mathf.Lerp(cam.orthographicSize,3+zoomOutCurve.Evaluate(amebasFollowing)/2, Time.deltaTime * zoomOutSensitivity);
     }
 }

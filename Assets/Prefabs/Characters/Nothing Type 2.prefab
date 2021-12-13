@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 4010970173962019311}
   - component: {fileID: 4010970173962019305}
   - component: {fileID: 4546531969614387229}
+  - component: {fileID: 7834111797529678799}
+  - component: {fileID: 4301908889471184899}
   m_Layer: 6
   m_Name: Simple2
   m_TagString: Untagged
@@ -118,14 +120,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84378f650e82f274cb82e606072869ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myColorIndex: 0
+  myRenderer: {fileID: 4010970173962019308}
+  notFollowingColorOutline: {r: 1, g: 1, b: 1, a: 1}
+  followingColorOutline: {r: 0, g: 0, b: 1, a: 1}
+  myColor: {fileID: 4010970173962019305}
   movementSpeed: 0.01
   myTag: 4
-  myBehaviour: {fileID: 0}
-  myColor: {fileID: 4010970173962019305}
-  swapped: 0
-  myColorIndex: 0
-  bigScale: {x: 1.2, y: 1.2, z: 1.2}
-  myRenderer: {fileID: 4010970173962019308}
+  clickAdd: {fileID: 7834111797529678799}
+  clickRemove: {fileID: 4301908889471184899}
 --- !u!58 &4010970173962019311
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -269,6 +272,70 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &7834111797529678799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010970173962019309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 821846512
+      Data2: 1091411987
+      Data3: 1482025353
+      Data4: 1350284938
+    Path: event:/Adding Click
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: TypeOfAmeba
+    Value: 3
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &4301908889471184899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4010970173962019309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 1779313231
+      Data2: 1170047015
+      Data3: -1394568809
+      Data4: -2002163679
+    Path: event:/Removing Click
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: TypeOfAmeba
+    Value: 3
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7830901434693412625
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,9 +348,11 @@ GameObject:
   - component: {fileID: 7830901434693412626}
   - component: {fileID: 3871524672231330243}
   - component: {fileID: 2677977908244133037}
+  - component: {fileID: 2583818173905294699}
+  - component: {fileID: 1785063167}
   m_Layer: 8
   m_Name: Nothing Type 2
-  m_TagString: Untagged
+  m_TagString: Nothing
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -295,7 +364,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7830901434693412625}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -363,3 +432,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myBehaviour: {fileID: 4010970173962019310}
+--- !u!114 &2583818173905294699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830901434693412625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5d9915c21c65a44d87dbe4f72be02c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToSpawnNext: 5
+  collisionSound: {fileID: 1785063167}
+--- !u!114 &1785063167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7830901434693412625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: -933519891
+      Data2: 1162286269
+      Data3: -996213111
+      Data4: -259852497
+    Path: event:/Collision
+  Event: 
+  PlayEvent: 0
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: TypeOfAmeba
+    Value: 4
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
