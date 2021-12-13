@@ -23,6 +23,7 @@ public class RelationshipBehaviour : MonoBehaviour
     public Types myTag;
     public StudioEventEmitter clickAdd;
     public StudioEventEmitter clickRemove;
+    public bool followingPlayer;
 
     private float clickTimer = 0.2f;
     private float _timeToClick;
@@ -30,7 +31,6 @@ public class RelationshipBehaviour : MonoBehaviour
     private Material _myMat;
     private bool _inMouseArea;
     private Rigidbody2D _entityRigidbody2D;
-    private bool _followingPlayer;
     private Dictionary<int, Transform> _attractingObjects;
     private Dictionary<int, Transform> _repellingObjects;
 
@@ -102,8 +102,8 @@ public class RelationshipBehaviour : MonoBehaviour
             if (Input.GetMouseButton(0) && _timeToClick > clickTimer)
             {
                 _timeToClick = 0;
-                _followingPlayer = !_followingPlayer;
-                if (_followingPlayer)
+                followingPlayer = !followingPlayer;
+                if (followingPlayer)
                 {
                     clickAdd.Play();
                     _myMat.SetColor("_SolidOutline",followingColorOutline);
@@ -339,7 +339,7 @@ public class RelationshipBehaviour : MonoBehaviour
 
             mainDir = mainDir / _attractingObjects.Count;
         }
-        if (_followingPlayer)
+        if (followingPlayer)
         {
             Vector2 dir = (GameManager.instance.player.transform.position - transform.position);
             float dist = Vector2.Distance(GameManager.instance.player.transform.position, transform.position);

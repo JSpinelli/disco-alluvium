@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToSpawnNext: 5
+  myBehaviour: {fileID: 2185777332633555414}
   collisionSound: {fileID: 1347080443998931839}
 --- !u!114 &1347080443998931839
 MonoBehaviour:
@@ -261,6 +262,7 @@ MonoBehaviour:
   myTag: 4
   clickAdd: {fileID: 3612917557521866056}
   clickRemove: {fileID: 4781178805976553893}
+  followingPlayer: 0
 --- !u!58 &2185777332633555415
 CircleCollider2D:
   m_ObjectHideFlags: 0

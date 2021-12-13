@@ -71,7 +71,7 @@ public class Spawner : MonoBehaviour
             }
             case 2:
             {
-                Instantiate(nothing[Random.Range(0,2)], spawnPos,Quaternion.identity);
+                Instantiate(nothing[Random.Range(0,3)], spawnPos,Quaternion.identity);
                 break;
             }
             case 3:
@@ -81,7 +81,7 @@ public class Spawner : MonoBehaviour
             }
             case 4:
             {
-                Instantiate(nothing[Random.Range(0,2)], spawnPos,Quaternion.identity);
+                Instantiate(nothing[Random.Range(0,3)], spawnPos,Quaternion.identity);
                 break;
             }           
             case 5:
@@ -104,7 +104,7 @@ public class Spawner : MonoBehaviour
         {
             case 0:
             {
-                Instantiate(nothing[Random.Range(0,2)], spawnPoint.position,Quaternion.identity);
+                Instantiate(nothing[Random.Range(0,3)], spawnPoint.position,Quaternion.identity);
                 break;
             }
             case 1:
@@ -114,7 +114,7 @@ public class Spawner : MonoBehaviour
             }
             case 2:
             {
-                Instantiate(nothing[Random.Range(0,2)], spawnPoint.position,Quaternion.identity);
+                Instantiate(nothing[Random.Range(0,3)], spawnPoint.position,Quaternion.identity);
                 break;
             }
             case 3:
@@ -124,7 +124,7 @@ public class Spawner : MonoBehaviour
             }
             case 4:
             {
-                Instantiate(nothing[Random.Range(0,2)], spawnPoint.position,Quaternion.identity);
+                Instantiate(nothing[Random.Range(0,3)], spawnPoint.position,Quaternion.identity);
                 break;
             }           
             case 5:

@@ -9,6 +9,7 @@ public class CollisionDetection : MonoBehaviour
     private bool _readyToSpawn = false;
     private float _timer;
 
+    public RelationshipBehaviour myBehaviour;
     public StudioEventEmitter collisionSound;
 
     private void Start()
@@ -18,7 +19,8 @@ public class CollisionDetection : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        collisionSound.Play();
+        if (!myBehaviour.followingPlayer)
+            collisionSound.Play();
         if (other.gameObject.CompareTag("Player")) return;
         if (!other.gameObject.CompareTag(gameObject.tag) && _readyToSpawn)
         {
